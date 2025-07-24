@@ -15,16 +15,6 @@
     position: relative;
     padding-left: 2rem;
     
-    &::before {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 0;
-        bottom: 0;
-        width: 2px;
-        background: $gradient-primary;
-    }
-    
     .company {
         font-weight: 600;
         color: $primary-color;
