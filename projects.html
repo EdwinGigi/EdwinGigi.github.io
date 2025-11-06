@@ -1,0 +1,283 @@
+---
+layout: default
+title: "Projects"
+---
+<link rel="stylesheet" href="{{ "/assets/css/projects.css" | relative_url }}">
+
+<div class="container mt-5 pt-4">
+    <h1 class="text-center mb-5">Featured Projects</h1>
+    
+    <!-- Text Summarizer Project -->
+    <div class="project-card mb-5">
+        <div class="row align-items-center">
+            <div class="col-md-4">
+                <div class="project-image-container">
+                    <img src="{{ '/assets/images/text-summarizer.png' | relative_url }}" class="img-fluid project-image" alt="Text Summarizer">
+                </div>
+            </div>
+            <div class="col-md-8">
+                <h2 class="project-title">Text Summarizer</h2>
+                <p class="project-description">
+                    A sophisticated text summarization tool powered by AI that condenses lengthy articles and documents into concise summaries while maintaining key information and context. The project utilizes advanced NLP techniques and machine learning algorithms to generate accurate and coherent summaries.
+                </p>
+                <div class="tech-stack mb-4">
+                    <span class="tech-badge">Python</span>
+                    <span class="tech-badge">Flask</span>
+                    <span class="tech-badge">NLP</span>
+                    <span class="tech-badge">Machine Learning</span>
+                    <span class="tech-badge">NLTK</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/EdwinGigi/TextSummariser" target="_blank" class="btn btn-primary">
+                        <i class="fab fa-github"></i> View on GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Job Application Tracker Project -->
+    <div class="project-card mb-5">
+        <div class="row align-items-center">
+            <div class="col-md-4">
+                <div class="project-image-container">
+                    <img src="{{ '/assets/images/job_search_helper.png' | relative_url }}" class="img-fluid project-image" alt="Job Application Tracker">
+                </div>
+            </div>
+            <div class="col-md-8">
+                <h2 class="project-title">Job Application Tracker</h2>
+                <p class="project-description">
+                    A simple python terminal program that uses the inquirer package to create a user-friendly interface to help users keep track of their job applications. Users can add, view, update, and delete job applications, as well as store relevant details such as company name, position, application date, status, and notes. The program saves the data in a SQLite database for easy retrieval and management.
+                </p>
+                <div class="tech-stack mb-4">
+                    <span class="tech-badge">Python</span>
+                    <span class="tech-badge">SQLite</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/EdwinGigi/JobApplicationTracker" target="_blank" class="btn btn-primary">
+                        <i class="fab fa-github"></i> View on GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- School Website Project -->
+    <div class="project-card mb-5">
+        <div class="row align-items-center">
+            <div class="col-md-4">
+                <div class="project-image-container">
+                    <img src="{{ '/assets/images/school-website.png' | relative_url }}" class="img-fluid project-image" alt="School Website">
+                </div>
+            </div>
+            <div class="col-md-8">
+                <h2 class="project-title">School Website</h2>
+                <p class="project-description">
+                  This is a website I built using HTML, CSS, and JavaScript. It is a minimalistic website that allows users to view the history of my school. It was part of my Extended Project Qualification (EPQ) in Year 12 for which I received a grade of A*.
+                </p>
+                <div class="tech-stack mb-4">
+                    <span class="tech-badge">HTML</span>
+                    <span class="tech-badge">CSS</span>
+                    <span class="tech-badge">JavaScript</span>
+                    <span class="tech-badge">Research & Development</span>
+                    <span class="tech-badge">GitHub Pages</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://historyofbgn.github.io/" target="_blank" class="btn btn-primary">
+                        <i class="fab fa-github"></i> View Website
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Portfolio Website Project -->
+    <div class="project-card mb-5">
+        <div class="row align-items-center">
+            <div class="col-md-4">
+                <div class="project-image-container">
+                    <img src="{{ '/assets/images/edwin-gigi-portfolio.png' | relative_url }}" class="img-fluid project-image" alt="Portfolio Website">
+                    <div class="project-image-overlay">
+                        <div class="overlay-content">
+                            <h3>View Live</h3>
+                            <i class="fas fa-external-link-alt"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <h2 class="project-title">Portfolio Website</h2>
+                <p class="project-description">
+                    A modern, responsive portfolio website built with Jekyll and Bootstrap. Features include dark mode support, smooth animations, and a clean, professional design. The site showcases my projects, skills, and professional experience.
+                </p>
+                <div class="tech-stack mb-4">
+                    <span class="tech-badge">Jekyll</span>
+                    <span class="tech-badge">SCSS</span>
+                    <span class="tech-badge">Bootstrap</span>
+                    <span class="tech-badge">JavaScript</span>
+                    <span class="tech-badge">HTML5</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/EdwinGigi/EdwinGigi.github.io" target="_blank" class="btn btn-primary">
+                        <i class="fab fa-github"></i> View on GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Add padding to account for fixed navbar */
+.container {
+    padding-top: 2rem;
+}
+
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tech-badge {
+    background: rgba(var(--primary-color), 0.1);
+    color: var(--primary-color);
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.tech-badge:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.project-card {
+    background: var(--card-bg);
+    border-radius: 1rem;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-color);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.project-image-container {
+    position: relative;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.project-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 1rem;
+    transition: transform 0.4s ease;
+}
+
+.project-image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(37, 99, 235, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.project-card:hover .project-image-overlay {
+    opacity: 1;
+}
+
+.project-card:hover .project-image {
+    transform: scale(1.1);
+}
+
+.overlay-content {
+    text-align: center;
+    color: white;
+}
+
+.overlay-content h3 {
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.overlay-content i {
+    font-size: 2rem;
+}
+
+.project-title {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+.project-description {
+    color: var(--text-light);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.project-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: var(--gradient-primary);
+    border: none;
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.btn-outline-primary {
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    background: transparent;
+}
+
+.btn-outline-primary:hover {
+    background: var(--gradient-primary);
+    color: white;
+    transform: translateY(-2px);
+    border-color: transparent;
+}
+
+@media (max-width: 768px) {
+    .project-links {
+        flex-direction: column;
+    }
+    
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+</style>

@@ -1,0 +1,64 @@
+@import "variables";
+
+// Base styles
+body {
+    font-family: $font-family-base;
+    background-color: $background-color;
+    color: $text-color;
+    line-height: $line-height-base;
+    overflow-x: hidden;
+    background-image: 
+        radial-gradient(circle at 100% 0%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 0% 100%, rgba(30, 64, 175, 0.1) 0%, transparent 50%);
+    background-attachment: fixed;
+}
+
+// Typography
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: $text-color;
+    position: relative;
+}
+
+h1 {
+    font-size: 3.5rem;
+    background: $gradient-primary;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientShift 8s ease infinite;
+    background-size: 200% 200%;
+}
+
+// Links
+a {
+    color: $primary-color;
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover {
+        color: $secondary-color;
+    }
+}
+
+// Container
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: $container-padding;
+    position: relative;
+    z-index: 1;
+}
+
+// Animations
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+} 

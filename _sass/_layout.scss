@@ -1,0 +1,61 @@
+@import "variables";
+
+// Grid system
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+    perspective: 1000px;
+}
+
+// Experience timeline
+.experience-item {
+    margin-bottom: 2rem;
+    position: relative;
+    padding-left: 2rem;
+    
+    .company {
+        font-weight: 600;
+        color: $primary-color;
+        position: relative;
+    }
+}
+
+// Responsive design
+@media (max-width: $breakpoint-md) {
+    .container {
+        padding: 1rem;
+    }
+    
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-links {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: $breakpoint-sm) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .project-card {
+        padding: 1.5rem;
+    }
+    
+    .project-links {
+        flex-direction: column;
+    }
+    
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+} 

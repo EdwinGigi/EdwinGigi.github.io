@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	
+	<title>Edwin Gigi - Software Engineer | </title>
+	
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+	
+	<!-- Google Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+	
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+	
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="/assets/css/main.css">
+	
+	<!-- Favicon -->
+	<link rel="icon" type="image/png" href="/assets/images/favicon.png">
+	
+	<!-- SEO --><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Edwin Gigi - Software Engineer</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="Edwin Gigi - Software Engineer" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="http://localhost:4000/" />
+<meta property="og:url" content="http://localhost:4000/" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Edwin Gigi - Software Engineer" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","headline":"Edwin Gigi - Software Engineer","url":"http://localhost:4000/"}</script>
+<!-- End Jekyll SEO tag -->
+<!-- Google Analytics --></head>
+
+<body><!-- Navbar removed -->
+
+<style>
+.navbar {
+    background: var(--card-bg);
+    padding: 0.75rem 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+    background: var(--card-bg);
+    padding: 0.5rem 0;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    color: var(--primary-color) !important;
+    font-size: 1.75rem;
+    margin-right: 1rem;
+}
+
+.navbar-text {
+    color: var(--text-color) !important;
+    font-size: 1rem;
+    opacity: 0.9;
+    padding-right: 1rem;
+}
+
+[data-theme="dark"] .navbar-brand {
+    color: #60a5fa !important;
+}
+
+.nav-link {
+    color: var(--text-color) !important;
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 0.5rem 1rem !important;
+    transition: all 0.3s ease;
+    position: relative;
+    margin: 0 0.25rem;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--gradient-primary);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.nav-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+#darkModeToggle {
+    color: var(--text-color);
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+#darkModeToggle:hover {
+    color: var(--primary-color);
+    transform: rotate(15deg);
+}
+
+[data-theme="dark"] .navbar {
+    background: var(--card-bg);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] .navbar.scrolled {
+    background: var(--card-bg);
+}
+
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        background: var(--card-bg);
+        padding: 1rem;
+        border-radius: 0.5rem;
+        margin-top: 1rem;
+    }
+    
+    .nav-link {
+        padding: 0.5rem 0 !important;
+    }
+    
+    #darkModeToggle {
+        margin-top: 0.5rem;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Theme toggle
+    const themeToggle = document.getElementById('darkModeToggle');
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    
+    function setTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+        themeToggle.innerHTML = theme === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+        
+        // Update body class for dark mode
+        if (theme === 'dark') {
+            document.body.classList.add('dark-mode');
+        } else {
+            document.body.classList.remove('dark-mode');
+        }
+    }
+    
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        setTheme(savedTheme);
+    } else if (prefersDarkScheme.matches) {
+        setTheme('dark');
+    }
+    
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        setTheme(currentTheme === 'dark' ? 'light' : 'dark');
+    });
+    
+    // Navbar scroll effect
+    const navbar = document.querySelector('.navbar');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+    
+    // Smooth scrolling with offset
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                const navbarHeight = navbar.offsetHeight;
+                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                const navbarCollapse = document.querySelector('.navbar-collapse');
+                if (navbarCollapse.classList.contains('show')) {
+                    navbarCollapse.classList.remove('show');
+                }
+            }
+        });
+    });
+});
+</script>
+    
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand" href="/">
+            <span class="brand-text">Edwin Gigi</span>
+        </a>
+        <span class="navbar-text d-none d-lg-inline">
+            Software Engineer
+        </span>
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/projects.html">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/edwingigi">Github</a>
+                </li>
+                <li class="nav-item">
+                    <button id="darkModeToggle" class="btn btn-link nav-link" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+    
+<main class="page-content" aria-label="Content">
+		<div class="wrapper">
+			<div class="name-section" style="background-image: url('/assets/images/banner.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h2 class="card-title">About Me</h2>
+                        <p class="card-text">
+                            I am a passionate software engineer with expertise in full-stack development, machine learning, and cloud technologies. 
+                            My journey in technology began with a fascination for solving complex problems and has evolved into a career 
+                            focused on creating innovative solutions that make a real impact.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="role-card">
+                    <i class="fas fa-code role-icon"></i>
+                    <h3>Software Engineer</h3>
+                    <p>Specializing in building scalable and efficient software solutions</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="role-card">
+                    <i class="fas fa-layer-group role-icon"></i>
+                    <h3>Full Stack</h3>
+                    <p>Expertise in both frontend and backend development</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="role-card">
+                    <i class="fas fa-envelope role-icon"></i>
+                    <h3>Contact</h3>
+                    <p>Let's work together on your next project</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2>Experience</h2>
+                    
+                    <div class="experience-item">
+                        <h3 class="company">Software Engineer - Darktrace</h3>
+                        <p class="date">2022 – Present</p>
+                        <ul>
+                            <li>Leading development of scalable web applications using modern tech stack</li>
+                            <li>Implementing microservices architecture and CI/CD pipelines</li>
+                            <li>Collaborating with cross-functional teams to deliver high-quality software</li>
+                            <li>Mentoring junior developers and conducting code reviews</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <h3 class="company">Warehouse Control Solutions - Software Developer</h3>
+                        <p class="date">08/2019 – 09/2020</p>
+                        <ul>
+                            <li>Designed and trained CNNs using TensorFlow, achieving high accuracy for healthcare applications</li>
+                            <li>Developed Python GUI for data labeling and processing</li>
+                            <li>Implemented OpenVino technology for real-time human pose estimation</li>
+                            <li>Built threaded data capture system on Raspberry Pi</li>
+                            <li>Developed RESTful API using Flask with JWT authentication</li>
+                            <li>Created responsive web interfaces using Bootstrap and jQuery</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2>Education</h2>
+                    <div class="education-item">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="/assets/images/De-Montfort-Uni.png" height="50px" class="me-3" />
+                            <h3 class="mb-0">De Montfort University - BSc (Hons) Computer Science with Placement Year</h3>
+                        </div>
+                        <p class="date">2018-2022</p>
+                        <p class="achievement">First Class Honours</p>
+                        <h4>Key modules:</h4>
+                        <ul>
+                            <li>Object Oriented Programming</li>
+                            <li>Software Engineering and Project Management</li>
+                            <li>Operating Systems and Computer Networks</li>
+                            <li>Database Systems and Data Structures</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2>Projects</h2>
+                    <p class="lead mb-4">Explore my latest projects and contributions</p>
+                    <a href="/projects.html" class="btn btn-primary">
+                        <i class="fas fa-code"></i> View Projects
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2>Technical Skills</h2>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h3>Languages</h3>
+                            <div class="skill-item">
+                                <span class="skill-name">Python, JavaScript</span>
+                                <div class="skill-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Java, TypeScript, C#</span>
+                                <div class="skill-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">C++, Go</span>
+                                <div class="skill-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skill-category">
+                            <h3>Frameworks</h3>
+                            <div class="skill-item">
+                                <span class="skill-name">React, Node.js</span>
+                                <div class="skill-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">TensorFlow, PyTorch</span>
+                                <div class="skill-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Flask, Express</span>
+                                <div class="skill-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skill-category">
+                            <h3>Tools &amp; Technologies</h3>
+                            <div class="skill-item">
+                                <span class="skill-name">Git, Docker, Kubernetes</span>
+                                <div class="skill-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">AWS, GCP, Azure</span>
+                                <div class="skill-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">CI/CD, Terraform, Ansible</span>
+                                <div class="skill-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2>Contact</h2>
+                    <p class="lead mb-4">Feel free to reach out to me through:</p>
+                    <div class="contact-links">
+                        <a href="https://linkedin.com/in/edwin-gigi" target="_blank" class="btn btn-outline-primary">
+                            <i class="fab fa-linkedin"></i> LinkedIn
+                        </a>
+                        <a href="https://github.com/edwingigi" target="_blank" class="btn btn-outline-primary">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                        <a href="mailto:edwingigi2012@gmail.com" class="btn btn-outline-primary">
+                            <i class="fas fa-envelope"></i> Email
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+		</div>
+	</main>
+	
+	<!-- Bootstrap JS -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+	
+	<!-- Custom JS -->
+	<script src="/assets/js/darkMode.js"></script>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="/assets/js/main.js"></script>
+<script src="/assets/js/darkMode.js"></script>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <p class="copyright">
+                    &copy; <script>document.write(new Date().getFullYear())</script> Edwin Gigi. Built with <a href="https://jekyllrb.com/" target="_blank">Jekyll</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<style>
+.footer {
+    background: var(--card-bg);
+    padding: 2rem 0;
+    margin-top: 4rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.copyright {
+    color: var(--text-light);
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.copyright a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.copyright a:hover {
+    color: var(--secondary-color);
+}
+
+/* Dark mode styles */
+[data-theme="dark"] .footer {
+    background: var(--card-bg);
+    border-top-color: var(--border-color);
+}
+
+[data-theme="dark"] .copyright {
+    color: var(--text-light);
+}
+</style>
+</html>

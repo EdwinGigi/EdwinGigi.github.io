@@ -1,0 +1,60 @@
+<link rel="stylesheet" href="{{ "/assets/css/construction.css" | relative_url }}">
+<div id="banner-div">
+    <img src="{{ "assets/images/banner.jpg" | relative_url }}" alt="banner image">
+    <img src="{{ "assets/images/banner.jpg" | relative_url }}" id="top" alt="banner image">
+    <div class="container">
+        <br><br>
+        <div class="card-deck mb-3 text-center">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">Software Engineer</h4>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled mt-3 mb-4">
+                    <li>De Montfort University - Computer Science </li>
+                    <li>First Class BSc Hons with Placement Year</li>
+                    <li>Software Engineer at Darktrace - a leading AI cyber security company</li>
+                    </ul>                    
+                </div>
+                <div class="card-footer">
+                    <a href="{{ "assets/uploads/Edwin Gigi -CV.pdf" | relative_url }}"  target="_blank">    
+                        <button type="button" class="btn btn-lg btn-block btn-primary">CV</button>
+                    </a>
+                </div>
+            </div>
+            <div class="card mb-4 shadow-sm">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">Full Stack</h4>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled mt-3 mb-4">
+                    <li>Comfortable with PHP with the Laravel framework, VueJS, SQL, MYSQL</li>
+                    <li>Trying to switch to Python and Learning ReactJS</li>
+                    <li>Experienced with VueJS, HTML, CSS </li>
+                    <li>Database with SQL - MySQL. </li>
+                    </ul>                    
+                </div>
+                <div class="card-footer">
+                    <a href="/projects">
+                        <button type="button" class="btn btn-lg btn-block btn-primary">View All Projects</button>
+                    </a>
+                </div>
+            </div>
+            <div class="card mb-4 shadow-sm">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">Contact</h4>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled mt-3 mb-4">
+                    <li>Keep tuned in to see details of more projects once they are completed</li>
+                    <li>Feel free to contact me using the methods below</li>
+                    <li><a href={% post_url 2020-07-14-Top-Games-List %}>My video game ranking</a></li>
+                    </ul>                    
+                </div>
+                <div class="card-footer">
+                    <button type="button" class="btn btn-lg btn-block btn-primary" onclick="scrollContacts()">Contact</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

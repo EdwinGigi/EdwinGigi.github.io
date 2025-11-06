@@ -1,0 +1,731 @@
+---
+---
+
+@import "variables";
+@import "base";
+@import "layout";
+@import "components";
+
+:root {
+    --primary-color: #{$primary-color};
+    --secondary-color: #{$secondary-color};
+    --accent-color: #{$accent-color};
+    --background-color: #{$background-color};
+    --text-color: #{$text-color};
+    --text-light: #{$text-light};
+    --card-bg: #{$card-bg};
+    --border-color: #{$border-color};
+    --gradient-primary: #{$gradient-primary};
+    --gradient-accent: #{$gradient-accent};
+    --gradient-dark: #{$gradient-dark};
+}
+
+[data-theme="dark"] {
+    --primary-color: #{$dark-primary-color};
+    --secondary-color: #{$dark-secondary-color};
+    --accent-color: #{$dark-accent-color};
+    --background-color: #{$dark-background-color};
+    --text-color: #{$dark-text-color};
+    --text-light: #{$dark-text-light};
+    --card-bg: #{$dark-card-bg};
+    --border-color: #{$dark-border-color};
+    --gradient-primary: #{$dark-gradient-primary};
+    --gradient-accent: #{$dark-gradient-accent};
+    --gradient-dark: #{$dark-gradient-dark};
+}
+
+// Base styles
+body {
+    font-family: $font-family-base;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: $line-height-base;
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    padding-top: 70px;
+}
+
+// Card base styles
+.card {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border-radius: 1rem;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-color);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: var(--gradient-primary);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.4s ease;
+    }
+
+    &:hover {
+        transform: translateY(-5px) scale(1.02);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+
+        &::before {
+            transform: scaleX(1);
+        }
+    }
+}
+
+// Role cards
+.role-card {
+    background: var(--card-bg);
+    border-radius: 1rem;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    height: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-color);
+    margin-bottom: 1.5rem;
+
+    h3 {
+        color: var(--primary-color);
+        margin: 1.25rem 0;
+        font-size: 1.75rem;
+        font-weight: 600;
+    }
+
+    p {
+        color: var(--text-color);
+        margin-bottom: 0;
+        font-size: 1.1rem;
+        line-height: 1.6;
+        opacity: 0.9;
+    }
+
+    i {
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        margin-bottom: 1.25rem;
+    }
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    }
+}
+
+// Dark mode overrides
+[data-theme="dark"] {
+    body {
+        background-image: 
+            radial-gradient(circle at 100% 0%, rgba(96, 165, 250, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 0% 100%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+    }
+
+    .card, .role-card {
+        background: var(--dark-card-bg);
+        border-color: var(--dark-border-color);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+
+        h2, h3 {
+            color: var(--dark-primary-color);
+        }
+
+        p, li {
+            color: var(--dark-text-color);
+            opacity: 1;
+        }
+
+        i {
+            color: var(--dark-primary-color);
+        }
+
+        &:hover {
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+        }
+    }
+
+    .navbar {
+        background: var(--dark-card-bg);
+        border-color: var(--dark-border-color);
+
+        .navbar-brand {
+            color: var(--dark-primary-color);
+        }
+
+        .nav-link {
+            color: var(--dark-text-color);
+        }
+    }
+}
+
+// Modern typography with gradient text
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+    position: relative;
+}
+
+h1 {
+    font-size: 3.5rem;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientShift 8s ease infinite;
+    background-size: 200% 200%;
+}
+
+// Container with modern effects
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+// Skills section with modern grid and animations
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+    perspective: 1000px;
+}
+
+.skill-category {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    transform-style: preserve-3d;
+    transition: transform 0.4s ease;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-color);
+    
+    &:hover {
+        transform: rotateY(5deg) rotateX(5deg);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    }
+    
+    h3 {
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+        position: relative;
+        display: inline-block;
+        
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+        
+        &:hover::after {
+            transform: scaleX(1);
+        }
+    }
+}
+
+.skill-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    
+    &:hover {
+        background: rgba(var(--primary-color), 0.1);
+        transform: translateX(5px);
+    }
+    
+    .skill-name {
+        font-weight: 500;
+        color: var(--text-color);
+    }
+    
+    .skill-stars {
+        color: #fbbf24;
+        display: flex;
+        gap: 0.25rem;
+    }
+}
+
+// Experience section with modern card design
+.experience-item {
+    background: var(--card-bg);
+    border-radius: 1rem;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-color);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    }
+    
+    .date {
+        color: var(--text-light);
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        
+        li {
+            margin-bottom: 0.75rem;
+            padding: 0.5rem;
+            color: var(--text-color);
+            transition: all 0.3s ease;
+            
+            &:hover {
+                transform: translateX(5px);
+            }
+            
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+// Contact section with modern buttons
+.contact-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    
+    a {
+        position: relative;
+        overflow: hidden;
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.5rem;
+        color: var(--primary-color);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 2px solid var(--primary-color);
+        
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-primary);
+            z-index: -1;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s ease;
+        }
+        
+        &:hover {
+            color: white;
+            
+            &::before {
+                transform: scaleX(1);
+                transform-origin: left;
+            }
+        }
+    }
+}
+
+// Animations
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-links {
+        flex-direction: column;
+    }
+}
+
+// Project-specific styles
+.project-card {
+    @extend .card;
+    background: rgba(var(--card-bg), 0.8);
+    backdrop-filter: blur(10px);
+    
+    .project-image-container {
+        position: relative;
+        border-radius: 1rem;
+        overflow: hidden;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+    
+    .project-image {
+        border-radius: 1rem;
+        max-height: 250px;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+    }
+    
+    .project-image-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(var(--primary-color), 0.8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+    }
+    
+    &:hover {
+        .project-image-overlay {
+            opacity: 1;
+        }
+        
+        .project-image {
+            transform: scale(1.1);
+        }
+    }
+}
+
+.overlay-content {
+    text-align: center;
+    color: white;
+    
+    h3 {
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+    }
+    
+    i {
+        font-size: 3rem;
+        animation: pulse 2s infinite;
+    }
+}
+
+.project-title {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+    
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: var(--gradient-primary);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.4s ease;
+    }
+    
+    .project-card:hover &::after {
+        transform: scaleX(1);
+    }
+}
+
+.project-description {
+    color: var(--text-light);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.project-links {
+    display: flex;
+    gap: 1rem;
+}
+
+// Animations
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.light-effect {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%);
+    pointer-events: none;
+    opacity: 0;
+    animation: lightFade 1s ease-out;
+}
+
+@keyframes lightFade {
+    0% {
+        opacity: 0.5;
+        transform: scale(0.5);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(2);
+    }
+}
+
+// Name section styles
+.name-section {
+    width: 100%;
+    min-height: 80vh;
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    padding: 4rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
+        z-index: 1;
+    }
+    
+    .container {
+        position: relative;
+        z-index: 2;
+    }
+    
+    h1 {
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 2rem;
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    
+    p {
+        font-size: 1.25rem;
+        color: rgba(0, 0, 0, 0.9);
+        margin-bottom: 1.5rem;
+    }
+    
+    #darkModeToggle {
+        color: white;
+        font-size: 1.5rem;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 0.75rem;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+        
+        &:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+            
+            i {
+                transform: rotate(15deg);
+            }
+        }
+        
+        i {
+            transition: transform 0.3s ease;
+        }
+    }
+}
+
+.card-text {
+    color: var(--text-color);
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+// Updated navbar styles
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 1rem 0;
+    transition: all 0.3s ease;
+    
+    .navbar-text {
+        color: var(--text-color);
+        font-size: 0.9rem;
+        opacity: 0.8;
+        margin-left: 1rem;
+    }
+    
+    .navbar-brand {
+        font-weight: 700;
+        font-size: 1.5rem;
+        color: var(--primary-color);
+        text-decoration: none;
+        
+        &:hover {
+            color: var(--secondary-color);
+        }
+    }
+    
+    .nav-link {
+        color: var(--text-color);
+        font-weight: 500;
+        padding: 0.5rem 1rem;
+        transition: all 0.3s ease;
+        
+        &:hover {
+            color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+    }
+    
+    #darkModeToggle {
+        color: var(--text-color);
+        padding: 0.5rem;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+        
+        &:hover {
+            background: rgba(var(--primary-color), 0.1);
+            transform: rotate(15deg);
+        }
+        
+        i {
+            font-size: 1.2rem;
+        }
+    }
+    
+    .navbar-toggler {
+        border: none;
+        padding: 0.5rem;
+        
+        &:focus {
+            box-shadow: none;
+        }
+        
+        .navbar-toggler-icon {
+            background-image: none;
+            position: relative;
+            width: 24px;
+            height: 24px;
+            
+            &::before,
+            &::after {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                background-color: var(--text-color);
+                transition: all 0.3s ease;
+            }
+            
+            &::before {
+                top: 6px;
+            }
+            
+            &::after {
+                bottom: 6px;
+            }
+        }
+    }
+}
+
+// About Me section
+.about-section {
+    padding: 4rem 0;
+    background: var(--background-color);
+
+    .card {
+        border: none;
+        background: var(--card-bg);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+        .card-title {
+            color: var(--primary-color);
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-text {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            line-height: 1.8;
+            opacity: 0.85;
+        }
+    }
+}
+
+// Dark mode specific overrides
+[data-theme="dark"] {
+    .about-section {
+        .card {
+            background: var(--dark-card-bg);
+
+            .card-title {
+                color: var(--dark-primary-color);
+            }
+
+            .card-text {
+                color: var(--dark-text-color);
+                opacity: 1;
+            }
+        }
+    }
+}

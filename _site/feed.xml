@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-04-12T23:48:59+01:00</updated><id>http://localhost:4000/feed.xml</id><entry><title type="html">Text Summarizer AI</title><link href="http://localhost:4000/projects/2022/06/01/Text-Summariser.html" rel="alternate" type="text/html" title="Text Summarizer AI" /><published>2022-06-01T00:00:00+01:00</published><updated>2022-06-01T00:00:00+01:00</updated><id>http://localhost:4000/projects/2022/06/01/Text-Summariser</id><content type="html" xml:base="http://localhost:4000/projects/2022/06/01/Text-Summariser.html"><![CDATA[<h1 id="text-summarizer-ai">Text Summarizer AI</h1>
+
+<p>This project is a text summarization tool that uses artificial intelligence to generate concise summaries of longer texts.</p>
+
+<h2 id="features">Features</h2>
+<ul>
+  <li>AI-powered text summarization</li>
+  <li>User-friendly interface</li>
+  <li>Multiple summary length options</li>
+  <li>Support for various text formats</li>
+</ul>
+
+<h2 id="technologies-used">Technologies Used</h2>
+<ul>
+  <li>Python</li>
+  <li>Natural Language Processing</li>
+  <li>Machine Learning</li>
+</ul>
+
+<h2 id="project-status">Project Status</h2>
+<p>Currently in development.</p>
+
+<p><a href="https://github.com/EdwinGigi/text-summarizer">View on GitHub</a></p>]]></content><author><name></name></author><category term="projects" /><summary type="html"><![CDATA[Text Summarizer AI]]></summary></entry><entry><title type="html">My games ranking list</title><link href="http://localhost:4000/blog/topGames" rel="alternate" type="text/html" title="My games ranking list" /><published>2020-07-14T00:00:00+01:00</published><updated>2020-07-14T00:00:00+01:00</updated><id>http://localhost:4000/blog/Top-Games-List</id><content type="html" xml:base="http://localhost:4000/blog/topGames"><![CDATA[<p>1: Red Dead Redemption 2
+    <br />2: God of War (2018)
+    <br />3: Baldurs Gate 3
+    <br />4: Marvel’s Spider Man
+    <br />5: GTA 5
+    <br />6: Skyrim
+    <br />7: Minecraft
+    <br /></p>]]></content><author><name></name></author><summary type="html"><![CDATA[1: Red Dead Redemption 2 2: God of War (2018) 3: Baldurs Gate 3 4: Marvel’s Spider Man 5: GTA 5 6: Skyrim 7: Minecraft]]></summary></entry></feed>

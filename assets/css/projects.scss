@@ -1,0 +1,21 @@
+---
+---
+
+.projectImage {
+    width: 400px;
+}
+
+.projectImageSmall {
+    height: 200px;
+}
+
+@media (max-width: 480px) {
+    .projectImage {
+		width: 75%;
+	}
+}
+
+.miniButtonIcon {
+    width: 32px;
+	height: 32px;
+}
