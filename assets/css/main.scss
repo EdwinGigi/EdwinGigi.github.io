@@ -345,6 +345,8 @@ h1 {
         
         &:hover {
             color: white;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
             
             &::before {
                 transform: scaleX(1);

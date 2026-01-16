@@ -1,9 +1,9 @@
 // Color scheme
-$primary-color: #00008b;
-$secondary-color: #000066;
-$accent-color: #0000b3;
-$background-color: #ffffff;
-$text-color: #1a1a1a;
+$primary-color: #2F4F4F;
+$secondary-color: #556B2F;
+$accent-color: #D2B48C;
+$background-color: #F5F5DC;
+$text-color: #36454F;
 $text-light: #4a4a4a;
 $card-bg: #ffffff;
 $border-color: #e2e8f0;
@@ -19,9 +19,9 @@ $dark-card-bg: #1e293b;
 $dark-border-color: #334155;
 
 // Gradients
-$gradient-primary: linear-gradient(135deg, #00008b, #000066);
-$gradient-accent: linear-gradient(135deg, #0000b3, #00008b);
-$gradient-dark: linear-gradient(135deg, #000066, #00004d);
+$gradient-primary: linear-gradient(135deg, #2F4F4F, #556B2F);
+$gradient-accent: linear-gradient(135deg, #D2B48C, #2F4F4F);
+$gradient-dark: linear-gradient(135deg, #556B2F, #2F4F4F);
 
 // Dark mode gradients
 $dark-gradient-primary: linear-gradient(135deg, #60a5fa, #3b82f6);
