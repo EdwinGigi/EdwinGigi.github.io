@@ -21,9 +21,8 @@ concurrency:
   group: '${{ github.workflow }}'
   cancel-in-progress: true
 
-defaults:
-  run:
-    shell: 'bash'
+\nenv:
+  GEMINI_CLI_TRUST_WORKSPACE: 'true'
 
 jobs:
   triage:
