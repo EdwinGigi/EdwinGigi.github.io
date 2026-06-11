@@ -18,9 +18,8 @@ on:
     types:
       - 'created'
 
-defaults:
-  run:
-    shell: 'bash'
+env:
+  GEMINI_CLI_TRUST_WORKSPACE: 'true'
 
 jobs:
   debugger:
