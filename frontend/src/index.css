@@ -1,0 +1,131 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+:root {
+  --primary-color: #2f4f4f;
+  --secondary-color: #556b2f;
+  --accent-color: #d2b48c;
+  --background-color: #f5f5dc;
+  --text-color: #36454f;
+  --text-light: #4a4a4a;
+  --card-bg: rgba(255, 255, 255, 0.8);
+  --border-color: #e2e8f0;
+  --gradient-primary: linear-gradient(135deg, #2f4f4f, #556b2f);
+  --font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+[data-theme='dark'] {
+  --primary-color: #60a5fa;
+  --secondary-color: #3b82f6;
+  --accent-color: #93c5fd;
+  --background-color: #0f172a;
+  --text-color: #f8fafc;
+  --text-light: #cbd5e1;
+  --card-bg: rgba(30, 41, 59, 0.8);
+  --border-color: #334155;
+  --gradient-primary: linear-gradient(135deg, #60a5fa, #3b82f6);
+}
+
+body {
+  font-family: var(--font-family-base);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+[data-theme='dark'] body {
+  background-image: 
+      radial-gradient(circle at 100% 0%, rgba(96, 165, 250, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 0% 100%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+}
+
+h1 {
+  font-size: 3.5rem;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* General Layout */
+.page-content {
+  padding-top: 80px;
+  min-height: calc(100vh - 150px);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Glassmorphism Cards */
+.glass-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border-color);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.glass-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* Button */
+.btn-primary-custom {
+  background: var(--gradient-primary);
+  border: none;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-primary-custom:hover {
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Role Icon */
+.role-icon {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
