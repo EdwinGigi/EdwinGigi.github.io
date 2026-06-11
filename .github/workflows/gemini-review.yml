@@ -12,7 +12,7 @@ concurrency:
   group: '${{ github.workflow }}-review-${{ github.event_name }}-${{ github.event.pull_request.number || github.event.issue.number }}'
   cancel-in-progress: true
 
-\nenv:
+env:
   GEMINI_CLI_TRUST_WORKSPACE: 'true'
 
 jobs:

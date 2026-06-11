@@ -21,7 +21,7 @@ concurrency:
   group: '${{ github.workflow }}'
   cancel-in-progress: true
 
-\nenv:
+env:
   GEMINI_CLI_TRUST_WORKSPACE: 'true'
 
 jobs:
