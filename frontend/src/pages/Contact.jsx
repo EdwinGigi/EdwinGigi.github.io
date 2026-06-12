@@ -32,15 +32,15 @@ export default function Contact() {
   ]
 
   return (
-    <div className="min-h-screen px-6 py-12 pb-24 md:py-24 relative overflow-hidden flex flex-col items-center justify-center">
+    <div className="min-h-[calc(100vh-80px)] px-6 pt-12 pb-24 md:py-24 relative overflow-hidden flex flex-col items-center justify-start md:justify-center">
       <Helmet>
         <title>Contact — Edwin Gigi</title>
         <meta name="description" content="Get in touch with Edwin Gigi for software engineering opportunities and collaborations." />
       </Helmet>
 
-      {/* Decorative background blur */}
-      <div className="glow-orb top-1/4 left-0 -translate-x-1/2 h-[600px] w-[600px] bg-primary/10" />
-      <div className="glow-orb bottom-0 right-0 translate-x-1/3 translate-y-1/3 h-[600px] w-[600px] bg-accent/5" />
+      {/* Decorative background blur (Optimized radial gradients) */}
+      <div className="absolute top-1/4 left-0 -translate-x-1/2 h-[300px] w-[300px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, var(--color-primary) 0%, transparent 70%)', opacity: 0.1 }} />
+      <div className="absolute bottom-0 right-0 translate-x-1/3 translate-y-1/3 h-[300px] w-[300px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, var(--color-accent) 0%, transparent 70%)', opacity: 0.05 }} />
 
       <div className="mx-auto max-w-3xl space-y-12 relative z-10 w-full">
         
