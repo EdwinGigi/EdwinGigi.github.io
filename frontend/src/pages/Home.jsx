@@ -240,7 +240,6 @@ function HeroSection() {
       className="relative flex min-h-svh items-center justify-center overflow-hidden"
     >
       {/* Background layers */}
-      <div className="absolute inset-0 bg-background" />
       <MatrixBackground />
 
       {/* Radial subtle glassmorphism orbs */}
@@ -458,8 +457,6 @@ function FeaturedProjectsSection() {
 
   return (
     <section className="relative py-24 md:py-32">
-      <div className="glow-orb top-1/2 right-0 h-[600px] w-[600px] bg-primary/10" />
-
       <div className="relative z-10 mx-auto max-w-6xl px-6">
         <SectionHeading subtitle="A selection of recent work that I'm proud of">
           Featured Projects

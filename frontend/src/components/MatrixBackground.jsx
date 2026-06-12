@@ -127,7 +127,7 @@ export default function MatrixBackground() {
   return (
     <canvas
       ref={canvasRef}
-      className={`absolute inset-0 z-0 h-full w-full opacity-60 ${theme === 'dark' ? 'mix-blend-screen' : 'mix-blend-multiply'}`}
+      className={`fixed inset-0 z-0 h-full w-full opacity-60 ${theme === 'dark' ? 'mix-blend-screen' : 'mix-blend-multiply'}`}
       style={{ pointerEvents: 'none' }}
     />
   )

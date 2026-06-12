@@ -26,7 +26,7 @@
       {
         "company": "Warehouse Control Solutions",
         "role": "Software Support Engineer",
-        "date": "09/2020 – 09/2021",
+        "date": "2020 – 2021",
         "points": [
           "Maintained international client systems across multiple sites via remote access",
           "Oversaw hardware and shipping processes of our systems for clients",
@@ -53,19 +53,49 @@
     "skills": [
       {
         "category": "Languages",
-        "items": ["PHP", "Python", "JavaScript", "TypeScript", "SQL", "HTML/CSS"]
+        "items": [
+          "PHP",
+          "Python",
+          "JavaScript",
+          "TypeScript",
+          "SQL",
+          "HTML/CSS"
+        ]
       },
       {
         "category": "Frameworks & Libraries",
-        "items": ["Laravel", "Vue.js", "React", "Flask", "Tailwind CSS", "Bootstrap"]
+        "items": [
+          "Laravel",
+          "Vue.js",
+          "React",
+          "Flask",
+          "Tailwind CSS",
+          "Bootstrap"
+        ]
       },
       {
         "category": "Tools & Technologies",
-        "items": ["Git", "Docker", "RESTful APIs", "CI/CD", "Postman", "Linux", "MySQL", "PostgreSQL"]
+        "items": [
+          "Git",
+          "Docker",
+          "RESTful APIs",
+          "CI/CD",
+          "Postman",
+          "Linux",
+          "MySQL",
+          "PostgreSQL"
+        ]
       },
       {
         "category": "Practices",
-        "items": ["Agile/Scrum", "SOLID Principles", "Microservices", "TDD", "Code Review", "Database Design"]
+        "items": [
+          "Agile/Scrum",
+          "SOLID Principles",
+          "Microservices",
+          "TDD",
+          "Code Review",
+          "Database Design"
+        ]
       }
     ],
     "contact": {
@@ -82,7 +112,13 @@
       "description": "A sophisticated text summarization tool powered by AI that condenses lengthy articles and documents into concise summaries while maintaining key information and context.",
       "longDescription": "This project utilizes advanced NLP techniques and machine learning algorithms to generate accurate and coherent summaries. Built with Python and Flask, it provides a web interface where users can paste text and receive instant summaries at various compression levels.",
       "image": "/assets/images/text-summarizer.png",
-      "stack": ["Python", "Flask", "NLP", "Machine Learning", "NLTK"],
+      "stack": [
+        "Python",
+        "Flask",
+        "NLP",
+        "Machine Learning",
+        "NLTK"
+      ],
       "features": [
         "AI-powered text summarization with adjustable compression",
         "Support for multiple text formats and lengths",
@@ -91,7 +127,6 @@
       ],
       "githubUrl": "https://github.com/EdwinGigi/TextSummariser"
     },
-
     {
       "id": "school-website",
       "slug": "school-website",
@@ -99,7 +134,12 @@
       "description": "A minimalistic website documenting school history, built as part of an Extended Project Qualification (EPQ) achieving an A* grade.",
       "longDescription": "This website was created using HTML, CSS, and JavaScript as part of my Extended Project Qualification in Year 12. It documents the history of my school through research and development, resulting in a clean, informative web experience hosted on GitHub Pages.",
       "image": "/assets/images/school-website.png",
-      "stack": ["HTML", "CSS", "JavaScript", "GitHub Pages"],
+      "stack": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "GitHub Pages"
+      ],
       "features": [
         "Responsive design for all devices",
         "Historical research presented in an engaging format",
@@ -115,7 +155,13 @@
       "description": "A world-class, highly interactive portfolio built with React and Tailwind CSS. Features dynamic Light/Dark modes, sleek glassmorphism aesthetics, and a custom physics-based cursor.",
       "longDescription": "This very website! Built as a modern React + Vite application, it sets a new standard for personal portfolios. It features a custom-built, interactive HTML5 Canvas Matrix background that responds dynamically to mouse movement, calculating distance vectors to create an ink-bleed silhouette in Light Mode and a neon glow in Dark Mode. Alongside smooth 3D-tilt Framer Motion animations, magnetic custom cursors, and a refined glassmorphism design system, the architecture remains fully static and deployed to GitHub Pages.",
       "image": "/assets/images/edwin-gigi-portfolio.png",
-      "stack": ["React", "Tailwind CSS", "Vite", "Framer Motion", "HTML5 Canvas"],
+      "stack": [
+        "React",
+        "Tailwind CSS",
+        "Vite",
+        "Framer Motion",
+        "HTML5 Canvas"
+      ],
       "features": [
         "Dynamic Light/Dark mode with seamless state transitions",
         "Interactive HTML5 Canvas background with mouse physics",
@@ -134,6 +180,16 @@
     "Skyrim",
     "Minecraft",
     "Cyberpunk 2077",
-    "The Witcher 3: Wild Hunt"
+    "The Witcher 3: Wild Hunt",
+    "Microsoft Flight Simulator 2020"
+  ],
+  "posts": [
+    {
+      "slug": "why-i-play",
+      "title": "Leveling Up: Why I Play, What I Play, and Why I'll Probably Never Finish My Backlog",
+      "date": "2026-06-12",
+      "excerpt": "A deep dive into my lifelong love for gaming, from holding down broken PS2 disk trays and Windows 98 motorbikes, to dreaming of getting my pilot's license in Microsoft Flight Simulator 2020.",
+      "content": "For as long as I can remember, gaming has been my ultimate escape hatch. My first ever memory of gaming was on my uncle's Windows 98 PC. He had this 3D motorbike racing game installed, and I remember playing it and being instantly hooked. That was it for me. The next big game I remember was Need For Speed Hot Pursuit, also on PC. Back in those days, these games came on literal installable CD-ROMs—you felt like a hacker just getting the game to run!\n\nEver since I was a kid, my dream was to become a pilot. But my uncle's PC sparked a fierce love for technology and computers, which is ultimately why I chose to become a software engineer instead. That dream of flying hasn't died, though—I still fully aspire to get my private pilot's license one day. Until then, my love for aviation is heavily channeled into Microsoft Flight Simulator 2020. I used to spend hours flying co-op flights with my childhood best friend, executing what we proudly claimed were \"butter landings\" (they definitely weren't).\n\nMy first true console was the legendary PS1. As a kid, this was hitting all my dopamine levels. Just when I thought life couldn't get any better, my parents got me the PS2. Oh my days... that opening intro theme still brings back core memories. Games like Rayman (and eventually Rayman Legends!), Ratchet and Clank, the OG Tomb Raider, and Splinter Cell... oh, the good old times.\n\nI clearly remember playing Call of Duty 3 and being hopelessly stuck on a level for months. I was running around aimlessly until I finally realized there was a mini-map in the top corner guiding me where I needed to go lol. And don't even get me started on XIII—that game was insane on the PS2. Then there was Time Crisis II, which was quite literally years ahead of its time because it came with physical gun controllers! You can imagine how my mind was blown as a kid. Gaming never felt as good as those days when you had to hold down the disk reader tray to start the game up properly, and you had to be careful not to pull the wired controller too hard or the entire console would come crashing down with it.\n\nEventually, I evolved into a bit of a PC completionist. Give me a rich narrative and well-written characters, and I'm hooked. I recently played Baldurs Gate 3 and it completely consumed me. I strive to 100% almost every game I touch, which means I spent an ungodly amount of time save-scumming dice rolls and talking to every single animal in Faerûn just to make sure I didn't miss a crumb of lore.\n\nOf course, it wasn't always single-player epics. I used to grind League of Legends with my friends religiously. We were in the trenches together for years, but I finally hung up my keyboard and retired somewhere around Season 5 or 7. I value my sanity too much these days. I also cherish the golden days of Xbox 360: huddling around a tiny, static-filled CRT TV with my brother and two of my best friends, playing split-screen Minecraft for hours. We spent countless nights mining, building questionable structures, and accidentally blowing each other up with Creepers. Pure chaos.\n\nLately, though, adulting has hit hard. I honestly haven't had much time to sit down and play games. The most recent multiplayer game I actually found myself heavily invested in was Arc Raiders. But no matter how busy life gets, gaming remains my favorite way to just drop my cortisol levels for a little bit and decompress after a long day of coding.\n\nLooking ahead, I’m fascinated by how AI is going to impact gaming. From dynamic NPC dialogue to procedural world generation that actually makes sense, the industry is on the brink of a massive shift. Oh, and like the rest of the planet, I cannot wait for GTA 6 to drop. I'm just desperately hoping it won't flop—if it does, I don't think the internet will survive."
+    }
   ]
 }

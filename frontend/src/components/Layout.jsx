@@ -5,6 +5,8 @@ import Navbar from './Navbar'
 import Footer from './Footer'
 import CustomCursor from './CustomCursor'
 
+import InteractiveBackground from './InteractiveBackground'
+
 function ScrollToTop() {
   const { pathname } = useLocation()
 
@@ -17,6 +19,9 @@ function ScrollToTop() {
 
 export default function Layout({ children }) {
   const { scrollYProgress } = useScroll()
+  const location = useLocation()
+  const isHome = location.pathname === '/'
+
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
@@ -24,9 +29,10 @@ export default function Layout({ children }) {
   })
 
   return (
-    <div className="flex min-h-screen flex-col bg-background text-text-primary">
+    <div className="flex min-h-screen flex-col text-text-primary relative">
       <CustomCursor />
       <ScrollToTop />
+      <InteractiveBackground />
       
       {/* Global Scroll Progress Bar */}
       <motion.div
@@ -35,10 +41,12 @@ export default function Layout({ children }) {
       />
       
       <Navbar />
-      <main className="flex-1 pt-20">
+      <main className="flex-1 pt-20 relative z-10">
         {children}
       </main>
-      <Footer />
+      <div className="relative z-10">
+        <Footer />
+      </div>
     </div>
   )
 }
