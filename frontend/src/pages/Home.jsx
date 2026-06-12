@@ -276,7 +276,7 @@ function HeroSection() {
         {/* Tagline */}
         <motion.p
           variants={heroItem}
-          className="mt-6 max-w-2xl text-base leading-relaxed text-text-muted md:text-lg glass-panel py-3 px-6 rounded-full inline-block"
+          className="mt-6 max-w-2xl text-base leading-relaxed text-text-muted md:text-lg glass-panel py-4 px-6 rounded-2xl md:rounded-3xl inline-block"
         >
           {aboutFirstSentence}
         </motion.p>
