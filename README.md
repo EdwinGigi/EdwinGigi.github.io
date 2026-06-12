@@ -12,6 +12,8 @@ A world-class, highly interactive portfolio website built with React and Vite. D
 - **Morphing Cyberpunk Cursor**: A stylized geometric cursor that instantly tracks movement and features a morphing, spring-trailed outline that reacts to clickable elements.
 - **Dynamic Light & Dark Modes**: Seamless theme switching that transforms gradients, blurs, and shadows while persisting user preference.
 - **3D Hover Tilt**: Featured project cards utilize Framer Motion spring physics to tilt dynamically towards the cursor.
+- **Mobile Performance Optimized**: Engineered to run smoothly on strict mobile engines like iOS Safari by completely eliminating GPU-heavy CSS blurs and canvas blend modes in favor of native radial gradients and composite operations.
+- **Custom Vector Branding**: Features a hand-coded, mathematically perfect SVG monogram logo that guarantees razor-sharp scaling across all devices and favicon sizes.
 
 ## 🌐 Live Website
 
