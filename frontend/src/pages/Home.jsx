@@ -256,8 +256,8 @@ function HeroSection() {
       <MatrixBackground />
 
       {/* Radial subtle glassmorphism orbs */}
-      <div className="glow-orb top-1/4 left-1/4 h-[500px] w-[500px] bg-primary/20" />
-      <div className="glow-orb bottom-1/4 right-1/4 h-[600px] w-[600px] bg-accent/10" />
+      <div className="absolute top-1/4 left-1/4 h-[250px] w-[250px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, var(--color-primary) 0%, transparent 70%)', opacity: 0.15 }} />
+      <div className="absolute bottom-1/4 right-1/4 h-[300px] w-[300px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, var(--color-accent) 0%, transparent 70%)', opacity: 0.15 }} />
 
       {/* Content */}
       <motion.div

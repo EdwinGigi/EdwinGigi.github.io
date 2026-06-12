@@ -63,10 +63,10 @@ export default function InteractiveBackground() {
       <motion.div
         className="absolute rounded-full"
         style={{
-          width: '1000px',
-          height: '1000px',
-          left: -500, // half width
-          top: -500,  // half height
+          width: '600px',
+          height: '600px',
+          left: -300, // half width
+          top: -300,  // half height
           x: springX,
           y: springY,
           background: glowColor,

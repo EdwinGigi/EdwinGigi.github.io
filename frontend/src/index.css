@@ -178,15 +178,6 @@ a:not(button a):not(.group\/link a):hover {
   }
 }
 
-/* Subtle background orb for hero sections */
-.glow-orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.15;
-  z-index: 0;
-  pointer-events: none;
-}
 
 /* ── Reduced Motion ── */
 @media (prefers-reduced-motion: reduce) {
