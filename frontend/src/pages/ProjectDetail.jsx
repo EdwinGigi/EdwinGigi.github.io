@@ -34,9 +34,9 @@ export default function ProjectDetail() {
       {/* ── Hero Section ── */}
       <section className="relative flex min-h-[40vh] items-end justify-center border-b border-border bg-surface px-6 py-16 pt-32 overflow-hidden">
         {project.image && (
-          <div className="absolute inset-0 z-0 overflow-hidden opacity-20 mix-blend-overlay">
-            <img src={project.image} alt="" className="h-full w-full object-cover blur-sm" />
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/90 to-background/50" />
+          <div className="absolute inset-0 z-0 overflow-hidden">
+            <img src={project.image} alt="" className="h-full w-full object-cover opacity-40 object-top" />
+            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background/20" />
           </div>
         )}
         
