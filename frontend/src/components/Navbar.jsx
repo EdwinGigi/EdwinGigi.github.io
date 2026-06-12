@@ -58,10 +58,8 @@ export default function Navbar() {
   return (
     <header
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-        scrolled
-          ? 'border-b border-border bg-surface/80 shadow-lg shadow-black/20 backdrop-blur-xl'
-          : 'bg-transparent'
+        'fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-border shadow-lg shadow-black/20 backdrop-blur-xl',
+        scrolled ? 'bg-surface/95' : 'bg-surface/60'
       )}
     >
       <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
@@ -129,7 +127,7 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => setMobileOpen((prev) => !prev)}
-            className="relative z-50 rounded-lg p-2 text-text-muted transition-colors hover:text-neon-cyan md:hidden"
+            className="relative z-50 rounded-lg border border-neon-cyan/50 bg-neon-cyan/10 p-2 text-neon-cyan backdrop-blur-md transition-colors hover:bg-neon-cyan/20 md:hidden"
             aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={mobileOpen}
           >
