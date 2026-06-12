@@ -194,7 +194,12 @@ function useTypewriter(words, typingSpeed = 100, deletingSpeed = 50, pauseTime =
     let timer;
     const currentWord = words[loopNum % words.length]
 
-    if (isDeleting) {
+    if (!isDeleting && text === currentWord) {
+      timer = setTimeout(() => setIsDeleting(true), pauseTime)
+    } else if (isDeleting && text === '') {
+      setIsDeleting(false)
+      setLoopNum((prev) => prev + 1)
+    } else if (isDeleting) {
       timer = setTimeout(() => {
         setText(currentWord.substring(0, text.length - 1))
       }, deletingSpeed)
@@ -202,13 +207,6 @@ function useTypewriter(words, typingSpeed = 100, deletingSpeed = 50, pauseTime =
       timer = setTimeout(() => {
         setText(currentWord.substring(0, text.length + 1))
       }, typingSpeed)
-    }
-
-    if (!isDeleting && text === currentWord) {
-      timer = setTimeout(() => setIsDeleting(true), pauseTime)
-    } else if (isDeleting && text === '') {
-      setIsDeleting(false)
-      setLoopNum((prev) => prev + 1)
     }
 
     return () => clearTimeout(timer)
