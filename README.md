@@ -1,13 +1,16 @@
 # Edwin Gigi - Portfolio Website
 
-A world-class, highly interactive portfolio website built with React and Vite. Designed with a sleek glassmorphism aesthetic, a dynamic Light/Dark mode system, and a custom physics-based HTML5 Canvas background.
+A world-class, highly interactive portfolio website built with React and Vite. Designed with a sleek glassmorphism aesthetic, a dynamic Light/Dark mode system, and stunning custom background physics.
 
 ## 🌟 Features
 
-- **Modern Glassmorphism Design**: Clean, frosted glass panels with premium typography and depth.
-- **Dynamic Light & Dark Modes**: Seamless theme switching that persists user preference.
-- **Interactive HTML5 Canvas Matrix**: A custom background where data streams react to cursor movement with glowing trails and ink-bleed effects.
-- **Magnetic Custom Cursor**: A trailing, physics-based cursor that smoothly expands over interactive elements.
+- **Modern Glassmorphism Design**: Clean, frosted glass panels with premium typography, fluid animations, and depth.
+- **Dynamic Blog Engine**: A lightweight, performant markdown-ready blog system driven by a single JSON data source. Features dynamic routing and fully responsive reading layouts.
+- **Dual Interactive Backgrounds**:
+  - **Matrix Rain Canvas**: A custom HTML5 Canvas background where matrix data streams fall endlessly, reacting to cursor movements with glowing trails and ink-bleed effects.
+  - **Fluid Cursor Gradient**: A smooth, liquid-like gradient orb that tracks the mouse using spring physics across content pages, adapting colors to light and dark modes.
+- **Morphing Cyberpunk Cursor**: A stylized geometric cursor that instantly tracks movement and features a morphing, spring-trailed outline that reacts to clickable elements.
+- **Dynamic Light & Dark Modes**: Seamless theme switching that transforms gradients, blurs, and shadows while persisting user preference.
 - **3D Hover Tilt**: Featured project cards utilize Framer Motion spring physics to tilt dynamically towards the cursor.
 
 ## 🌐 Live Website
@@ -64,8 +67,8 @@ The project uses GitHub Actions to deploy to GitHub Pages automatically when cha
 │   ├── public/         # Static assets like images
 │   ├── src/            
 │   │   ├── components/ # Reusable UI components (Navbar, MatrixBackground, CustomCursor)
-│   │   ├── data/       # portfolio-data.json (Source of truth for projects and profile info)
-│   │   ├── pages/      # Route pages (Home, Projects, etc.)
+│   │   ├── data/       # portfolio-data.json (Source of truth for projects, blog posts, and profile)
+│   │   ├── pages/      # Route pages (Home, Projects, Blog, BlogPost, etc.)
 │   │   ├── index.css   # Global Tailwind and custom theme variables
 │   │   └── App.jsx     # Main application and routing shell
 │   ├── vite.config.js  # Vite configuration
