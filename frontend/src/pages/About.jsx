@@ -1,10 +1,9 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform, useInView } from 'framer-motion'
 import { Helmet } from 'react-helmet-async'
-import { Briefcase, GraduationCap, Code2, Download } from 'lucide-react'
+import { Briefcase, GraduationCap, Code2 } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
 import { SectionHeading } from '@/components/ui/section-heading'
 import portfolioData from '@/data/portfolio-data.json'
 
@@ -26,7 +25,7 @@ function AnimatedSection({ children, delay = 0 }) {
   )
 }
 
-function TimelineItem({ item, isLast }) {
+function TimelineItem({ item }) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
@@ -36,7 +35,7 @@ function TimelineItem({ item, isLast }) {
       <div className="hidden md:block">
         {/* Center dot */}
         <motion.div 
-          className="absolute left-1/2 top-6 z-10 h-4 w-4 -translate-x-1/2 rounded-full border-2 border-background bg-neon-cyan shadow-[0_0_15px_rgba(0,240,255,0.6)]"
+          className="absolute left-1/2 top-6 z-10 h-4 w-4 -translate-x-1/2 rounded-full border-2 border-background bg-primary shadow-sm"
           initial={{ scale: 0 }}
           animate={isInView ? { scale: 1 } : { scale: 0 }}
           transition={{ duration: 0.4, delay: 0.2 }}
@@ -46,7 +45,7 @@ function TimelineItem({ item, isLast }) {
       {/* ── Mobile Layout: Left dot ── */}
       <div className="block md:hidden">
         <motion.div 
-          className="absolute left-[3px] top-6 z-10 h-4 w-4 -translate-x-1/2 rounded-full border-2 border-background bg-neon-cyan shadow-[0_0_15px_rgba(0,240,255,0.6)]"
+          className="absolute left-[3px] top-6 z-10 h-4 w-4 -translate-x-1/2 rounded-full border-2 border-background bg-primary shadow-sm"
           initial={{ scale: 0 }}
           animate={isInView ? { scale: 1 } : { scale: 0 }}
           transition={{ duration: 0.4, delay: 0.2 }}
@@ -54,26 +53,26 @@ function TimelineItem({ item, isLast }) {
       </div>
 
       <motion.div
-        className="mb-8"
-        initial={{ opacity: 0, x: 50 }}
-        animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
+        className="mb-10"
+        initial={{ opacity: 0, x: 30 }}
+        animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
       >
-        <Card className="hover:border-neon-cyan/40">
-          <CardContent className="p-6">
-            <h3 className="font-heading text-xl font-bold text-neon-cyan">
+        <Card className="hover:border-primary/20 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300">
+          <CardContent className="p-6 md:p-8">
+            <h3 className="font-heading text-xl font-bold text-text-primary">
               {item.role || item.degree}
             </h3>
             <div className="mb-4 mt-1 flex flex-wrap items-center justify-between gap-2 border-b border-border pb-4">
-              <span className="font-medium text-text-primary">{item.company || item.institution}</span>
-              <span className="text-sm text-text-muted">{item.date}</span>
+              <span className="font-medium text-primary">{item.company || item.institution}</span>
+              <span className="text-sm font-medium text-text-secondary bg-surface-hover px-3 py-1 rounded-full">{item.date}</span>
             </div>
             
             {item.points && (
-              <ul className="space-y-2 text-sm text-text-muted">
+              <ul className="space-y-3 text-sm text-text-muted leading-relaxed">
                 {item.points.map((point, i) => (
-                  <li key={i} className="flex gap-2">
-                    <span className="text-neon-cyan mt-1">▹</span>
+                  <li key={i} className="flex gap-3 items-start">
+                    <span className="text-primary mt-1 text-xs">◆</span>
                     <span>{point}</span>
                   </li>
                 ))}
@@ -81,15 +80,19 @@ function TimelineItem({ item, isLast }) {
             )}
 
             {item.achievement && (
-              <div className="mt-4">
-                <Badge variant="green" className="text-sm">🏆 {item.achievement}</Badge>
+              <div className="mt-5">
+                <Badge variant="outline" className="text-xs border-primary/20 bg-primary/5 text-primary py-1 px-3">
+                  <span className="mr-1.5">★</span> {item.achievement}
+                </Badge>
               </div>
             )}
             
             {item.modules && (
-              <div className="mt-4 flex flex-wrap gap-2">
+              <div className="mt-5 flex flex-wrap gap-2">
                 {item.modules.map((mod, i) => (
-                  <Badge key={i} variant="outline" className="text-xs">{mod}</Badge>
+                  <Badge key={i} variant="outline" className="text-xs bg-surface border-border text-text-secondary hover:border-text-dim">
+                    {mod}
+                  </Badge>
                 ))}
               </div>
             )}
@@ -111,7 +114,7 @@ export default function About() {
   const scaleY = useTransform(scrollYProgress, [0, 1], [0, 1])
 
   return (
-    <div className="min-h-screen px-6 py-12 pb-24 md:py-20" ref={containerRef}>
+    <div className="min-h-screen px-6 py-12 pb-24 md:py-24" ref={containerRef}>
       <Helmet>
         <title>About — Edwin Gigi</title>
         <meta name="description" content="Experience, education, and technical skills of Edwin Gigi, Software Engineer." />
@@ -122,10 +125,10 @@ export default function About() {
         {/* ── Header ── */}
         <AnimatedSection>
           <div className="text-center">
-            <h1 className="font-heading text-4xl font-bold md:text-5xl">
-              <span className="gradient-text">About Me</span>
+            <h1 className="font-heading text-4xl font-bold tracking-tight text-text-primary md:text-5xl">
+              About Me
             </h1>
-            <p className="mx-auto mt-4 max-w-2xl text-text-muted">
+            <p className="mx-auto mt-6 max-w-2xl text-lg text-text-muted">
               My journey, experience, and the tools I use to build the future.
             </p>
           </div>
@@ -134,25 +137,27 @@ export default function About() {
         {/* ── Experience Timeline ── */}
         <section>
           <AnimatedSection>
-            <div className="mb-10 flex items-center gap-3">
-              <Briefcase className="h-6 w-6 text-neon-cyan" />
-              <SectionHeading title="Experience" />
+            <div className="mb-12 flex items-center justify-center md:justify-start gap-4">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                <Briefcase className="h-6 w-6" />
+              </div>
+              <h2 className="font-heading text-3xl font-bold text-text-primary">Experience</h2>
             </div>
           </AnimatedSection>
 
           <div className="relative">
             {/* The vertical timeline line (Desktop: center, Mobile: left) */}
-            <div className="absolute left-[3px] top-6 bottom-0 w-0.5 bg-border md:left-1/2 md:-translate-x-1/2" />
+            <div className="absolute left-[3px] top-6 bottom-0 w-[2px] bg-border md:left-1/2 md:-translate-x-1/2" />
             
-            {/* Animated neon line overlay */}
+            {/* Animated line overlay */}
             <motion.div 
-              className="absolute left-[3px] top-6 bottom-0 w-0.5 origin-top bg-neon-cyan shadow-[0_0_10px_rgba(0,240,255,0.5)] md:left-1/2 md:-translate-x-1/2"
+              className="absolute left-[3px] top-6 bottom-0 w-[2px] origin-top bg-primary md:left-1/2 md:-translate-x-1/2"
               style={{ scaleY }}
             />
 
             <div className="space-y-0">
               {profile.experience.map((exp, idx) => (
-                <TimelineItem key={idx} item={exp} isLast={idx === profile.experience.length - 1} />
+                <TimelineItem key={idx} item={exp} />
               ))}
             </div>
           </div>
@@ -161,17 +166,19 @@ export default function About() {
         {/* ── Education ── */}
         <section>
           <AnimatedSection>
-            <div className="mb-10 flex items-center gap-3">
-              <GraduationCap className="h-6 w-6 text-neon-magenta" />
-              <SectionHeading title="Education" />
+            <div className="mb-12 flex items-center justify-center md:justify-start gap-4">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                <GraduationCap className="h-6 w-6" />
+              </div>
+              <h2 className="font-heading text-3xl font-bold text-text-primary">Education</h2>
             </div>
           </AnimatedSection>
 
           <div className="relative">
-            <div className="absolute left-[3px] top-6 bottom-0 w-0.5 bg-border md:left-1/2 md:-translate-x-1/2" />
+            <div className="absolute left-[3px] top-6 bottom-0 w-[2px] bg-border md:left-1/2 md:-translate-x-1/2" />
             <div className="space-y-0">
               {profile.education.map((edu, idx) => (
-                <TimelineItem key={idx} item={edu} isLast={idx === profile.education.length - 1} />
+                <TimelineItem key={idx} item={edu} />
               ))}
             </div>
           </div>
@@ -180,23 +187,25 @@ export default function About() {
         {/* ── Technical Skills ── */}
         <section>
           <AnimatedSection>
-            <div className="mb-10 flex items-center gap-3">
-              <Code2 className="h-6 w-6 text-neon-green" />
-              <SectionHeading title="Technical Skills" />
+            <div className="mb-12 flex items-center justify-center md:justify-start gap-4">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                <Code2 className="h-6 w-6" />
+              </div>
+              <h2 className="font-heading text-3xl font-bold text-text-primary">Technical Skills</h2>
             </div>
           </AnimatedSection>
 
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-8 md:grid-cols-2">
             {profile.skills.map((category, idx) => (
               <AnimatedSection key={idx} delay={idx * 0.1}>
-                <Card className="h-full hover:border-neon-cyan/30">
-                  <CardContent className="p-6">
-                    <h3 className="mb-6 font-heading text-lg font-semibold text-neon-cyan border-b border-border pb-2">
+                <Card className="h-full hover:border-primary/20 transition-colors shadow-sm">
+                  <CardContent className="p-8">
+                    <h3 className="mb-6 font-heading text-xl font-bold text-text-primary">
                       {category.category}
                     </h3>
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-2.5">
                       {category.items.map((skill, i) => (
-                        <Badge key={i} variant="neon" className="px-3 py-1.5 hover:shadow-[0_0_10px_rgba(0,240,255,0.4)] cursor-default">
+                        <Badge key={i} variant="outline" className="px-4 py-2 bg-surface hover:bg-surface-hover transition-colors font-medium text-sm text-text-secondary border-border">
                           {skill}
                         </Badge>
                       ))}
@@ -207,8 +216,6 @@ export default function About() {
             ))}
           </div>
         </section>
-
-
 
       </div>
     </div>

@@ -19,8 +19,8 @@ export default function BlogPost() {
         animate={{ opacity: 1, y: 0 }}
         className="glass-panel max-w-lg w-full p-8 text-center border-border"
       >
-        <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-neon-magenta/10">
-          <FileWarning className="h-8 w-8 text-neon-magenta" />
+        <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-error/10">
+          <FileWarning className="h-8 w-8 text-error" />
         </div>
         
         <h1 className="mb-2 font-heading text-2xl font-bold text-text-primary">
@@ -28,7 +28,7 @@ export default function BlogPost() {
         </h1>
         
         <p className="mb-8 text-text-muted">
-          The requested data packet "<span className="font-mono text-neon-cyan">{slug}</span>" could not be retrieved from the main server. The blog module is currently offline.
+          The requested data packet "<span className="font-mono text-primary">{slug}</span>" could not be retrieved from the main server. The blog module is currently offline.
         </p>
 
         <Button asChild variant="default" className="w-full">

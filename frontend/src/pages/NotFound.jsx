@@ -7,26 +7,25 @@ import { Button } from '@/components/ui/button'
 
 export default function NotFound() {
   const [terminalLines, setTerminalLines] = useState([
-    { text: '$ locate page', color: 'text-neon-green', delay: 0 }
+    { text: '$ locate page', color: 'text-success', delay: 0 }
   ])
 
   useEffect(() => {
-    const timer1 = setTimeout(() => {
-      setTerminalLines(prev => [...prev, { text: '> Searching index...', color: 'text-text-muted', delay: 0 }])
-    }, 800)
-    
-    const timer2 = setTimeout(() => {
-      setTerminalLines(prev => [...prev, { text: '> Connecting to node...', color: 'text-text-muted', delay: 0 }])
-    }, 1600)
+    const sequence = [
+      { text: '> SCANNING SYSTEM DIRECTORIES...', color: 'text-text-muted', delay: 800 },
+      { text: '> ERROR: 404', color: 'text-error font-bold', delay: 800 },
+      { text: '> PAGE DELETED OR MOVED', color: 'text-error', delay: 800 },
+      { text: '> ERROR: PATH_NOT_FOUND', color: 'text-error font-bold animate-pulse', delay: 600 }
+    ]
 
-    const timer3 = setTimeout(() => {
-      setTerminalLines(prev => [...prev, { text: '> ERROR: PATH_NOT_FOUND', color: 'text-neon-magenta font-bold animate-pulse', delay: 0 }])
-    }, 2400)
+    const timers = sequence.map((line, index) => {
+      return setTimeout(() => {
+        setTerminalLines(prev => [...prev, line])
+      }, sequence.slice(0, index + 1).reduce((acc, curr) => acc + curr.delay, 0))
+    })
 
     return () => {
-      clearTimeout(timer1)
-      clearTimeout(timer2)
-      clearTimeout(timer3)
+      timers.forEach(timer => clearTimeout(timer))
     }
   }, [])
 
@@ -57,13 +56,13 @@ export default function NotFound() {
         }
         .glitch-text::before {
           left: 2px;
-          text-shadow: -2px 0 #00f0ff;
+          text-shadow: -2px 0 #6366f1;
           clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
           animation: glitch-anim-1 2s infinite linear alternate-reverse;
         }
         .glitch-text::after {
           left: -2px;
-          text-shadow: -2px 0 #ff00aa;
+          text-shadow: -2px 0 #38bdf8;
           clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
           animation: glitch-anim-2 3s infinite linear alternate-reverse;
         }
@@ -95,7 +94,7 @@ export default function NotFound() {
           className="glitch-wrapper mb-8"
         >
           <h1 
-            className="glitch-text font-heading text-8xl font-black md:text-9xl drop-shadow-[0_0_20px_rgba(0,240,255,0.3)]"
+            className="glitch-text font-heading text-8xl font-black md:text-9xl drop-shadow-md"
             data-text="404"
           >
             404
