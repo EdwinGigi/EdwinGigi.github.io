@@ -78,13 +78,6 @@ export default function MatrixBackground() {
         if (distance < 100) {
           // Glow intense if near mouse (Cyan for dark, Black/Deep Purple for light)
           color = theme === 'dark' ? '#00f0ff' : '#000000'
-          ctx.shadowBlur = theme === 'dark' ? 10 : 15
-          ctx.shadowColor = color
-          // Make the text slightly bolder for the interaction
-          ctx.font = `bold ${fontSize + 2}px monospace`
-        } else {
-          ctx.shadowBlur = 0
-          ctx.font = `${fontSize}px monospace`
         }
 
         // Randomly make some chars brighter naturally
@@ -94,9 +87,6 @@ export default function MatrixBackground() {
 
         ctx.fillStyle = color
         ctx.fillText(char, x, y)
-        
-        // Reset shadow for next drop
-        ctx.shadowBlur = 0
         
         // Reset drop to top if it goes off screen (with some randomness)
         if (y > canvas.height && Math.random() > 0.975) {

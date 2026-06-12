@@ -63,6 +63,7 @@ export default function InteractiveBackground() {
           y: springY,
           background: glowColor,
           filter: 'blur(40px)',
+          willChange: 'transform',
         }}
       />
     </div>
