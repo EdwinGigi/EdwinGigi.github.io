@@ -33,34 +33,34 @@ export default function Contact() {
       label: 'Email',
       value: contact.email,
       href: `mailto:${contact.email}`,
-      color: 'group-hover:border-neon-cyan group-hover:text-neon-cyan group-hover:shadow-[0_0_15px_rgba(0,240,255,0.4)]'
+      color: 'group-hover:border-primary group-hover:text-primary group-hover:shadow-lg group-hover:shadow-primary/10 group-hover:bg-primary/5'
     },
     {
       icon: Linkedin,
       label: 'LinkedIn',
       value: 'linkedin.com/in/edwin-gigi',
       href: contact.linkedin,
-      color: 'group-hover:border-neon-magenta group-hover:text-neon-magenta group-hover:shadow-[0_0_15px_rgba(255,0,170,0.4)]'
+      color: 'group-hover:border-primary group-hover:text-primary group-hover:shadow-lg group-hover:shadow-primary/10 group-hover:bg-primary/5'
     },
     {
       icon: Github,
       label: 'GitHub',
       value: 'github.com/edwingigi',
       href: contact.github,
-      color: 'group-hover:border-neon-green group-hover:text-neon-green group-hover:shadow-[0_0_15px_rgba(57,255,20,0.4)]'
+      color: 'group-hover:border-primary group-hover:text-primary group-hover:shadow-lg group-hover:shadow-primary/10 group-hover:bg-primary/5'
     }
   ]
 
   return (
-    <div className="min-h-screen px-6 py-12 pb-24 md:py-20 relative overflow-hidden">
+    <div className="min-h-screen px-6 py-12 pb-24 md:py-24 relative overflow-hidden">
       <Helmet>
         <title>Contact — Edwin Gigi</title>
         <meta name="description" content="Get in touch with Edwin Gigi for software engineering opportunities and collaborations." />
       </Helmet>
 
       {/* Decorative background blur */}
-      <div className="absolute top-1/4 left-0 -translate-x-1/2 w-96 h-96 bg-neon-cyan/10 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 right-0 translate-x-1/3 translate-y-1/3 w-96 h-96 bg-neon-magenta/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="glow-orb top-1/4 left-0 -translate-x-1/2 h-[600px] w-[600px] bg-primary/10" />
+      <div className="glow-orb bottom-0 right-0 translate-x-1/3 translate-y-1/3 h-[600px] w-[600px] bg-accent/5" />
 
       <div className="mx-auto max-w-6xl space-y-16 relative z-10">
         
@@ -71,8 +71,8 @@ export default function Contact() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h1 className="font-heading text-4xl font-bold md:text-5xl mb-6">
-            <span className="gradient-text">Get In Touch</span>
+          <h1 className="font-heading text-4xl font-bold tracking-tight text-text-primary md:text-5xl mb-6">
+            Get In Touch
           </h1>
         </motion.div>
 
@@ -102,16 +102,14 @@ export default function Contact() {
                     href={method.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group glass-panel flex items-center gap-6 p-4 border-border transition-all hover:bg-surface"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
+                    className="group glass-panel flex items-center gap-6 p-5 border border-border rounded-2xl transition-all hover:bg-surface hover:-translate-y-1"
                   >
                     <div className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-border bg-background transition-all duration-300 ${method.color}`}>
-                      <Icon className="h-6 w-6" />
+                      <Icon className="h-6 w-6 text-text-muted group-hover:text-primary transition-colors" />
                     </div>
                     <div>
-                      <p className="text-sm font-medium text-text-muted uppercase tracking-wider">{method.label}</p>
-                      <p className="font-medium text-text-primary group-hover:text-neon-cyan transition-colors">{method.value}</p>
+                      <p className="text-xs font-semibold text-text-secondary uppercase tracking-wider mb-1">{method.label}</p>
+                      <p className="font-medium text-text-primary group-hover:text-primary transition-colors">{method.value}</p>
                     </div>
                   </motion.a>
                 )
@@ -125,85 +123,83 @@ export default function Contact() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="glass-panel p-8 border-border relative overflow-hidden h-full">
-              {/* Form scanning line effect */}
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-neon-cyan/5 to-transparent h-1 opacity-0 group-focus-within:opacity-100 group-focus-within:animate-scan-line pointer-events-none" />
+            <div className="glass-panel p-8 md:p-10 border border-border rounded-3xl relative overflow-hidden h-full shadow-2xl shadow-primary/5">
               
               {isSuccess ? (
                 <motion.div 
-                  initial={{ opacity: 0, scale: 0.9 }}
+                  initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   className="flex h-full min-h-[400px] flex-col items-center justify-center text-center"
                 >
-                  <div className="mb-6 rounded-full bg-neon-green/10 p-4">
-                    <CheckCircle className="h-16 w-16 text-neon-green" />
+                  <div className="mb-6 rounded-full bg-primary/10 p-5">
+                    <CheckCircle className="h-16 w-16 text-primary" />
                   </div>
-                  <h3 className="font-heading text-2xl font-bold text-neon-green mb-2">Message Sent!</h3>
+                  <h3 className="font-heading text-2xl font-bold text-text-primary mb-3">Message Sent!</h3>
                   <p className="text-text-muted">Thanks for reaching out. I'll get back to you soon.</p>
                   <Button 
                     variant="outline" 
-                    className="mt-8"
+                    className="mt-10 rounded-full"
                     onClick={() => setIsSuccess(false)}
                   >
                     Send Another Message
                   </Button>
                 </motion.div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-6 relative z-10 group">
+                <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
                   <div className="grid gap-6 sm:grid-cols-2">
                     <div className="space-y-2">
-                      <label htmlFor="name" className="text-sm font-medium text-text-muted">Your Name</label>
+                      <label htmlFor="name" className="text-sm font-medium text-text-secondary">Your Name</label>
                       <input 
                         type="text" 
                         id="name" 
                         required
-                        className="w-full rounded-lg border border-border bg-background/50 px-4 py-3 text-text-primary transition-all focus:border-neon-cyan focus:outline-none focus:ring-1 focus:ring-neon-cyan/50"
+                        className="w-full rounded-xl border border-border bg-surface-hover/50 px-4 py-3.5 text-text-primary transition-all focus:border-primary focus:bg-surface focus:outline-none focus:ring-4 focus:ring-primary/10"
                         placeholder="John Doe"
                       />
                     </div>
                     <div className="space-y-2">
-                      <label htmlFor="email" className="text-sm font-medium text-text-muted">Email Address</label>
+                      <label htmlFor="email" className="text-sm font-medium text-text-secondary">Email Address</label>
                       <input 
                         type="email" 
                         id="email" 
                         required
-                        className="w-full rounded-lg border border-border bg-background/50 px-4 py-3 text-text-primary transition-all focus:border-neon-cyan focus:outline-none focus:ring-1 focus:ring-neon-cyan/50"
+                        className="w-full rounded-xl border border-border bg-surface-hover/50 px-4 py-3.5 text-text-primary transition-all focus:border-primary focus:bg-surface focus:outline-none focus:ring-4 focus:ring-primary/10"
                         placeholder="john@example.com"
                       />
                     </div>
                   </div>
                   
                   <div className="space-y-2">
-                    <label htmlFor="subject" className="text-sm font-medium text-text-muted">Subject</label>
+                    <label htmlFor="subject" className="text-sm font-medium text-text-secondary">Subject</label>
                     <input 
                       type="text" 
                       id="subject" 
                       required
-                      className="w-full rounded-lg border border-border bg-background/50 px-4 py-3 text-text-primary transition-all focus:border-neon-cyan focus:outline-none focus:ring-1 focus:ring-neon-cyan/50"
+                      className="w-full rounded-xl border border-border bg-surface-hover/50 px-4 py-3.5 text-text-primary transition-all focus:border-primary focus:bg-surface focus:outline-none focus:ring-4 focus:ring-primary/10"
                       placeholder="Project Inquiry"
                     />
                   </div>
 
                   <div className="space-y-2">
-                    <label htmlFor="message" className="text-sm font-medium text-text-muted">Message</label>
+                    <label htmlFor="message" className="text-sm font-medium text-text-secondary">Message</label>
                     <textarea 
                       id="message" 
                       required
                       rows={5}
-                      className="w-full resize-none rounded-lg border border-border bg-background/50 px-4 py-3 text-text-primary transition-all focus:border-neon-cyan focus:outline-none focus:ring-1 focus:ring-neon-cyan/50"
+                      className="w-full resize-none rounded-xl border border-border bg-surface-hover/50 px-4 py-3.5 text-text-primary transition-all focus:border-primary focus:bg-surface focus:outline-none focus:ring-4 focus:ring-primary/10"
                       placeholder="Hello Edwin, I would like to talk about..."
                     />
                   </div>
 
                   <Button 
                     type="submit" 
-                    className="w-full" 
+                    className="w-full rounded-full h-12 shadow-md shadow-primary/10 mt-2" 
                     size="lg"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? (
                       <span className="flex items-center gap-2">
-                        <div className="h-4 w-4 animate-spin rounded-full border-2 border-background border-t-transparent" />
+                        <div className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
                         Sending...
                       </span>
                     ) : (

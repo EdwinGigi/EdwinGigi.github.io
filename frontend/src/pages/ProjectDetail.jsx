@@ -32,18 +32,18 @@ export default function ProjectDetail() {
       </Helmet>
 
       {/* ── Hero Section ── */}
-      <section className="relative flex min-h-[40vh] items-end justify-center border-b border-border bg-surface px-6 py-16 pt-32">
+      <section className="relative flex min-h-[40vh] items-end justify-center border-b border-border bg-surface px-6 py-16 pt-32 overflow-hidden">
         {project.image && (
-          <div className="absolute inset-0 z-0 overflow-hidden opacity-20">
+          <div className="absolute inset-0 z-0 overflow-hidden opacity-20 mix-blend-overlay">
             <img src={project.image} alt="" className="h-full w-full object-cover blur-sm" />
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background/20" />
+            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/90 to-background/50" />
           </div>
         )}
         
         <div className="relative z-10 w-full max-w-4xl">
           <Link 
             to="/projects" 
-            className="mb-8 inline-flex items-center gap-2 text-sm font-medium text-text-muted hover:text-neon-cyan transition-colors"
+            className="mb-8 inline-flex items-center gap-2 text-sm font-medium text-text-muted hover:text-primary transition-colors"
           >
             <ArrowLeft className="h-4 w-4" /> Back to Projects
           </Link>
@@ -51,16 +51,16 @@ export default function ProjectDetail() {
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="mb-6 font-heading text-4xl font-bold tracking-tight md:text-6xl"
+            className="mb-6 font-heading text-4xl font-bold tracking-tight text-text-primary md:text-6xl"
           >
-            <span className="gradient-text">{project.title}</span>
+            {project.title}
           </motion.h1>
           
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="max-w-2xl text-lg text-text-muted md:text-xl"
+            className="max-w-2xl text-lg text-text-muted md:text-xl leading-relaxed"
           >
             {project.description}
           </motion.p>
@@ -73,14 +73,14 @@ export default function ProjectDetail() {
         {/* Links row (Mobile: Top, Desktop: Top-right float equivalent handled via flex) */}
         <div className="mb-12 flex flex-wrap gap-4">
           {project.liveUrl && (
-            <Button asChild size="lg" className="flex-1 md:flex-none">
+            <Button asChild size="lg" className="flex-1 md:flex-none rounded-full shadow-md shadow-primary/10">
               <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                 <ExternalLink className="mr-2 h-5 w-5" /> Live Demo
               </a>
             </Button>
           )}
           {project.githubUrl && (
-            <Button asChild variant="outline" size="lg" className="flex-1 md:flex-none">
+            <Button asChild variant="outline" size="lg" className="flex-1 md:flex-none rounded-full">
               <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                 <Github className="mr-2 h-5 w-5" /> Source Code
               </a>
@@ -96,7 +96,7 @@ export default function ProjectDetail() {
             viewport={{ once: true }}
           >
             <SectionHeading title="Overview" />
-            <div className="prose prose-invert mt-6 max-w-none text-text-primary prose-p:leading-relaxed prose-a:text-neon-cyan hover:prose-a:text-neon-magenta">
+            <div className="prose prose-invert mt-6 max-w-none text-text-secondary prose-p:leading-relaxed prose-a:text-primary hover:prose-a:text-primary/80">
               <p className="whitespace-pre-wrap">{project.longDescription || project.description}</p>
             </div>
           </motion.section>
@@ -111,7 +111,7 @@ export default function ProjectDetail() {
               <SectionHeading title="Tech Stack" />
               <div className="mt-6 flex flex-wrap gap-3">
                 {project.stack.map(tech => (
-                  <Badge key={tech} variant="neon" className="text-sm px-4 py-2">
+                  <Badge key={tech} variant="outline" className="text-sm px-4 py-2 bg-surface text-text-secondary font-medium">
                     {tech}
                   </Badge>
                 ))}
@@ -129,9 +129,9 @@ export default function ProjectDetail() {
               <SectionHeading title="Key Features" />
               <div className="mt-6 grid gap-4 sm:grid-cols-2">
                 {project.features.map((feature, i) => (
-                  <div key={i} className="glass-panel flex items-start gap-3 p-5 border-border hover:border-neon-cyan/30 transition-colors">
-                    <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-neon-green" />
-                    <span className="text-text-primary">{feature}</span>
+                  <div key={i} className="glass-panel flex items-start gap-4 p-6 border-border hover:border-primary/20 transition-colors rounded-2xl">
+                    <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+                    <span className="text-text-primary font-medium">{feature}</span>
                   </div>
                 ))}
               </div>
@@ -140,13 +140,13 @@ export default function ProjectDetail() {
         </div>
 
         {/* ── Navigation Footer ── */}
-        <div className="mt-24 grid gap-4 border-t border-border pt-12 sm:grid-cols-2">
+        <div className="mt-24 grid gap-6 border-t border-border pt-12 sm:grid-cols-2">
           {prevProject ? (
             <Link 
               to={`/projects/${prevProject.slug}`}
-              className="group flex flex-col items-start gap-2 rounded-xl border border-border bg-surface p-6 transition-all hover:border-neon-cyan/50"
+              className="group flex flex-col items-start gap-2 rounded-2xl border border-border bg-surface p-6 transition-all hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5"
             >
-              <span className="text-xs font-semibold uppercase tracking-wider text-text-muted group-hover:text-neon-cyan transition-colors">Previous Project</span>
+              <span className="text-xs font-semibold uppercase tracking-wider text-text-muted group-hover:text-primary transition-colors">Previous Project</span>
               <span className="font-heading text-lg font-bold text-text-primary flex items-center gap-2">
                 <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
                 {prevProject.title}
@@ -157,9 +157,9 @@ export default function ProjectDetail() {
           {nextProject ? (
             <Link 
               to={`/projects/${nextProject.slug}`}
-              className="group flex flex-col items-end gap-2 rounded-xl border border-border bg-surface p-6 transition-all hover:border-neon-cyan/50 sm:text-right"
+              className="group flex flex-col items-end gap-2 rounded-2xl border border-border bg-surface p-6 transition-all hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 sm:text-right"
             >
-              <span className="text-xs font-semibold uppercase tracking-wider text-text-muted group-hover:text-neon-cyan transition-colors">Next Project</span>
+              <span className="text-xs font-semibold uppercase tracking-wider text-text-muted group-hover:text-primary transition-colors">Next Project</span>
               <span className="font-heading text-lg font-bold text-text-primary flex items-center gap-2">
                 {nextProject.title}
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />

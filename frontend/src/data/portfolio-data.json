@@ -91,22 +91,7 @@
       ],
       "githubUrl": "https://github.com/EdwinGigi/TextSummariser"
     },
-    {
-      "id": "job-application-tracker",
-      "slug": "job-application-tracker",
-      "title": "Job Application Tracker",
-      "description": "A Python terminal program with a user-friendly interface to help users keep track of their job applications with full CRUD operations.",
-      "longDescription": "Built with Python's inquirer package, this tool creates an interactive terminal interface for managing job applications. Users can add, view, update, and delete applications while storing details such as company name, position, application date, status, and notes. Data is persisted in a SQLite database for easy retrieval.",
-      "image": "/assets/images/job_search_helper.png",
-      "stack": ["Python", "SQLite", "CLI"],
-      "features": [
-        "Interactive terminal UI with inquirer",
-        "Full CRUD operations for job applications",
-        "SQLite database for persistent storage",
-        "Track status, notes, and application dates"
-      ],
-      "githubUrl": "https://github.com/EdwinGigi/JobApplicationTracker"
-    },
+
     {
       "id": "school-website",
       "slug": "school-website",
@@ -127,15 +112,15 @@
       "id": "portfolio-website",
       "slug": "portfolio-website",
       "title": "Portfolio Website",
-      "description": "A modern, responsive portfolio website built with React and Tailwind CSS, featuring a cyberpunk design theme with smooth animations.",
-      "longDescription": "This very website! A complete rebuild from a Jekyll-based portfolio to a modern React + Vite application with Tailwind CSS, shadcn/ui components, and Framer Motion animations. Features a cyberpunk-inspired design with neon accents, glassmorphism effects, and a fully static architecture deployed to GitHub Pages.",
+      "description": "A world-class, highly interactive portfolio built with React and Tailwind CSS. Features dynamic Light/Dark modes, sleek glassmorphism aesthetics, and a custom physics-based cursor.",
+      "longDescription": "This very website! Built as a modern React + Vite application, it sets a new standard for personal portfolios. It features a custom-built, interactive HTML5 Canvas Matrix background that responds dynamically to mouse movement, calculating distance vectors to create an ink-bleed silhouette in Light Mode and a neon glow in Dark Mode. Alongside smooth 3D-tilt Framer Motion animations, magnetic custom cursors, and a refined glassmorphism design system, the architecture remains fully static and deployed to GitHub Pages.",
       "image": "/assets/images/edwin-gigi-portfolio.png",
-      "stack": ["React", "Tailwind CSS", "Vite", "Framer Motion", "GitHub Pages"],
+      "stack": ["React", "Tailwind CSS", "Vite", "Framer Motion", "HTML5 Canvas"],
       "features": [
-        "Cyberpunk-themed design with neon accents",
-        "Smooth page transitions and scroll animations",
-        "MDX-powered blog system",
-        "Fully static, deployed to GitHub Pages"
+        "Dynamic Light/Dark mode with seamless state transitions",
+        "Interactive HTML5 Canvas background with mouse physics",
+        "Magnetic trailing custom cursor",
+        "3D-tilt spring animations and global scroll progress bar"
       ],
       "githubUrl": "https://github.com/EdwinGigi/EdwinGigi.github.io"
     }

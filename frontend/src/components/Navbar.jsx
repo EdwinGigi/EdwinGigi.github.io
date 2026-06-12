@@ -1,9 +1,10 @@
 import { useState, useEffect, useCallback } from 'react'
 import { NavLink, Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, Sun, Moon } from 'lucide-react'
 import { Github } from '@/components/ui/icons'
 import { cn } from '@/lib/utils'
+import { useTheme } from '@/components/ThemeProvider'
 
 const navLinks = [
   { to: '/', label: 'Home' },
@@ -17,7 +18,7 @@ const mobileMenuVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.06, delayChildren: 0.1 },
+    transition: { staggerChildren: 0.05, delayChildren: 0.1 },
   },
   exit: {
     opacity: 0,
@@ -26,17 +27,18 @@ const mobileMenuVariants = {
 }
 
 const mobileLinkVariants = {
-  hidden: { opacity: 0, x: -24 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.3, ease: 'easeOut' } },
-  exit: { opacity: 0, x: 24, transition: { duration: 0.2 } },
+  hidden: { opacity: 0, y: 10 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] } },
+  exit: { opacity: 0, y: -10, transition: { duration: 0.2 } },
 }
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const { theme, toggleTheme } = useTheme()
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50)
+    const handleScroll = () => setScrolled(window.scrollY > 20)
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
@@ -58,36 +60,44 @@ export default function Navbar() {
   return (
     <header
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-border shadow-lg shadow-black/20 backdrop-blur-xl',
-        scrolled ? 'bg-surface/95' : 'bg-surface/60'
+        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
+        scrolled
+          ? 'bg-background/80 backdrop-blur-md border-b border-border shadow-sm'
+          : 'bg-transparent border-b border-transparent'
       )}
     >
       <nav className="relative z-50 mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
         {/* ── Brand ── */}
         <Link
           to="/"
-          className="group relative font-mono text-lg font-bold tracking-widest text-neon-cyan no-underline transition-all hover:text-neon-cyan"
+          onClick={() => {
+            if (window.location.pathname === '/') {
+              window.scrollTo({ top: 0, behavior: 'smooth' })
+            }
+          }}
+          className="group relative font-heading text-lg font-bold tracking-tight text-text-primary transition-colors hover:text-primary"
         >
-          <span className="relative z-10 drop-shadow-[0_0_8px_rgba(0,240,255,0.6)]">
-            EDWIN<span className="text-neon-magenta">.</span>GIGI
-          </span>
-          {/* Glow underline on hover */}
-          <span className="absolute -bottom-1 left-0 h-px w-0 bg-gradient-to-r from-neon-cyan to-neon-magenta transition-all duration-300 group-hover:w-full" />
+          Edwin <span className="text-primary font-medium">Gigi</span>
         </Link>
 
         {/* ── Desktop Nav Links ── */}
-        <ul className="hidden items-center gap-1 md:flex">
+        <ul className="hidden items-center gap-2 md:flex">
           {navLinks.map(({ to, label }) => (
             <li key={to}>
               <NavLink
                 to={to}
                 end={to === '/'}
+                onClick={() => {
+                  if (window.location.pathname === to) {
+                    window.scrollTo({ top: 0, behavior: 'smooth' })
+                  }
+                }}
                 className={({ isActive }) =>
                   cn(
-                    'group relative px-4 py-2 font-heading text-sm font-medium tracking-wide transition-colors duration-200',
+                    'group relative px-4 py-2 font-sans text-sm font-medium transition-colors duration-200',
                     isActive
-                      ? 'text-neon-cyan drop-shadow-[0_0_6px_rgba(0,240,255,0.5)]'
-                      : 'text-text-muted hover:text-neon-cyan'
+                      ? 'text-primary'
+                      : 'text-text-muted hover:text-text-primary'
                   )
                 }
               >
@@ -97,10 +107,10 @@ export default function Navbar() {
                     {/* Animated underline */}
                     <span
                       className={cn(
-                        'absolute bottom-0 left-1/2 h-px -translate-x-1/2 bg-neon-cyan shadow-[0_0_8px_rgba(0,240,255,0.6)] transition-all duration-300',
+                        'absolute bottom-1 left-1/2 h-0.5 -translate-x-1/2 bg-primary transition-all duration-300 rounded-full',
                         isActive
-                          ? 'w-3/4'
-                          : 'w-0 group-hover:w-1/2'
+                          ? 'w-1/2 opacity-100'
+                          : 'w-0 opacity-0 group-hover:w-1/3 group-hover:opacity-50'
                       )}
                     />
                   </>
@@ -110,14 +120,45 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* ── Right Section: GitHub + Mobile Toggle ── */}
-        <div className="flex items-center gap-3">
+        {/* ── Right Section: GitHub + Theme Toggle + Mobile Toggle ── */}
+        <div className="flex items-center gap-2 md:gap-4">
+          {/* Theme Toggle */}
+          <button
+            onClick={toggleTheme}
+            className="rounded-full p-2 text-text-muted transition-colors hover:bg-surface hover:text-text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+            aria-label="Toggle theme"
+          >
+            <AnimatePresence mode="wait" initial={false}>
+              {theme === 'dark' ? (
+                <motion.div
+                  key="moon"
+                  initial={{ opacity: 0, rotate: -90 }}
+                  animate={{ opacity: 1, rotate: 0 }}
+                  exit={{ opacity: 0, rotate: 90 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <Moon className="h-5 w-5" />
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="sun"
+                  initial={{ opacity: 0, rotate: -90 }}
+                  animate={{ opacity: 1, rotate: 0 }}
+                  exit={{ opacity: 0, rotate: 90 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <Sun className="h-5 w-5" />
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </button>
+
           {/* GitHub icon */}
           <a
             href="https://github.com/edwingigi"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden rounded-lg p-2 text-text-muted transition-colors duration-200 hover:bg-surface hover:text-neon-cyan md:flex"
+            className="hidden text-text-muted transition-colors hover:text-primary md:block p-2"
             aria-label="GitHub profile"
           >
             <Github className="h-5 w-5" />
@@ -127,7 +168,7 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => setMobileOpen((prev) => !prev)}
-            className="rounded-lg border border-neon-cyan/50 bg-neon-cyan/10 p-2 text-neon-cyan backdrop-blur-md transition-colors hover:bg-neon-cyan/20 md:hidden"
+            className="rounded-md p-2 text-text-muted transition-colors hover:bg-surface hover:text-text-primary md:hidden"
             aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={mobileOpen}
           >
@@ -162,32 +203,36 @@ export default function Navbar() {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            className="fixed inset-0 z-40 flex flex-col items-center justify-start pt-32 md:hidden"
-            style={{ backgroundColor: '#0a0a0f' }}
+            className="fixed inset-0 z-40 flex flex-col items-center justify-start pt-32 bg-background/95 backdrop-blur-md md:hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.25 }}
+            transition={{ duration: 0.3 }}
           >
             <motion.ul
-              className="flex flex-col items-center gap-6"
+              className="flex flex-col items-center gap-8 w-full px-6"
               variants={mobileMenuVariants}
               initial="hidden"
               animate="visible"
               exit="exit"
             >
               {navLinks.map(({ to, label }) => (
-                <motion.li key={to} variants={mobileLinkVariants}>
+                <motion.li key={to} variants={mobileLinkVariants} className="w-full text-center">
                   <NavLink
                     to={to}
                     end={to === '/'}
-                    onClick={closeMobile}
+                    onClick={() => {
+                      if (window.location.pathname === to) {
+                        window.scrollTo({ top: 0, behavior: 'smooth' })
+                      }
+                      closeMobile()
+                    }}
                     className={({ isActive }) =>
                       cn(
-                        'font-heading text-3xl font-bold tracking-wider transition-colors duration-200',
+                        'block w-full py-3 font-heading text-2xl font-semibold tracking-wide transition-colors duration-200',
                         isActive
-                          ? 'text-neon-cyan drop-shadow-[0_0_12px_rgba(0,240,255,0.6)]'
-                          : 'text-text-primary hover:text-neon-cyan'
+                          ? 'text-primary'
+                          : 'text-text-secondary hover:text-text-primary'
                       )
                     }
                   >
@@ -196,6 +241,8 @@ export default function Navbar() {
                 </motion.li>
               ))}
 
+              <div className="h-px w-12 bg-border my-2" />
+
               {/* Mobile GitHub link */}
               <motion.li variants={mobileLinkVariants}>
                 <a
@@ -203,17 +250,13 @@ export default function Navbar() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={closeMobile}
-                  className="flex items-center gap-3 font-heading text-lg tracking-wide text-text-muted transition-colors hover:text-neon-cyan"
+                  className="flex items-center gap-3 font-sans text-base text-text-muted transition-colors hover:text-primary"
                 >
                   <Github className="h-5 w-5" />
                   GitHub
                 </a>
               </motion.li>
             </motion.ul>
-
-            {/* Decorative corner accents */}
-            <div className="pointer-events-none absolute left-6 top-24 h-8 w-8 border-l-2 border-t-2 border-neon-cyan/30" />
-            <div className="pointer-events-none absolute bottom-6 right-6 h-8 w-8 border-b-2 border-r-2 border-neon-magenta/30" />
           </motion.div>
         )}
       </AnimatePresence>

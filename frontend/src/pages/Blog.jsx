@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
-import { Terminal, Code2, ArrowRight } from 'lucide-react'
+import { FileText, ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 export default function Blog() {
@@ -13,7 +13,7 @@ export default function Blog() {
       </Helmet>
 
       {/* Decorative background blur */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-neon-cyan/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="glow-orb top-1/2 left-1/2 h-[500px] w-[500px] bg-primary/10 -translate-x-1/2 -translate-y-1/2" />
 
       <div className="text-center z-10 w-full max-w-2xl">
         
@@ -23,8 +23,8 @@ export default function Blog() {
           transition={{ duration: 0.5 }}
           className="mb-12"
         >
-          <h1 className="font-heading text-4xl font-bold md:text-5xl mb-6">
-            <span className="gradient-text">Transmission Log</span>
+          <h1 className="font-heading text-4xl font-bold tracking-tight text-text-primary md:text-5xl mb-6">
+            Blog
           </h1>
           <p className="text-lg text-text-muted">
             Articles and thoughts on software engineering, architecture, and technology.
@@ -35,39 +35,28 @@ export default function Blog() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.2, duration: 0.5 }}
-          className="glass-panel overflow-hidden border-border"
+          className="glass-panel overflow-hidden border-border rounded-2xl"
         >
-          {/* Terminal Header */}
-          <div className="flex items-center gap-2 border-b border-border bg-surface-alt px-4 py-3">
-            <div className="flex gap-1.5">
-              <div className="h-3 w-3 rounded-full bg-red-500/80" />
-              <div className="h-3 w-3 rounded-full bg-yellow-500/80" />
-              <div className="h-3 w-3 rounded-full bg-neon-green/80" />
-            </div>
-            <span className="ml-2 font-mono text-xs text-text-muted flex items-center gap-1">
-              <Terminal className="h-3 w-3" /> blog_module.init
-            </span>
-          </div>
           
-          {/* Terminal Body */}
-          <div className="p-8 md:p-12 flex flex-col items-center text-center">
+          {/* Card Body */}
+          <div className="p-10 md:p-14 flex flex-col items-center text-center">
             <motion.div 
-              className="mb-6 rounded-full bg-neon-magenta/10 p-4 relative"
-              animate={{ boxShadow: ['0 0 0 rgba(255,0,170,0)', '0 0 20px rgba(255,0,170,0.3)', '0 0 0 rgba(255,0,170,0)'] }}
-              transition={{ repeat: Infinity, duration: 2 }}
+              className="mb-6 rounded-2xl bg-primary/10 p-5 relative"
+              animate={{ boxShadow: ['0 0 0 rgba(100,100,255,0)', '0 0 20px rgba(100,100,255,0.1)', '0 0 0 rgba(100,100,255,0)'] }}
+              transition={{ repeat: Infinity, duration: 3 }}
             >
-              <Code2 className="h-10 w-10 text-neon-magenta" />
+              <FileText className="h-10 w-10 text-primary" />
             </motion.div>
             
-            <h2 className="font-heading text-2xl font-bold text-text-primary mb-3">
-              Module Initializing...
+            <h2 className="font-heading text-2xl font-bold text-text-primary mb-4">
+              Coming Soon
             </h2>
             
-            <p className="text-text-muted mb-8 max-w-md">
-              The blog system is currently under construction. I'm building an MDX-powered engine to share my technical writings. Check back soon!
+            <p className="text-text-muted mb-10 max-w-md leading-relaxed">
+              The blog system is currently under construction. I'm building a modern engine to share my technical writings. Check back soon!
             </p>
 
-            <Button asChild variant="outline" className="group">
+            <Button asChild variant="outline" className="group rounded-full">
               <Link to="/projects">
                 View My Projects <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>

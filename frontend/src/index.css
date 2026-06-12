@@ -1,123 +1,98 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
-  /* ── Color Palette: Cyberpunk ── */
-  --color-background: #0a0a0f;
-  --color-background-alt: #12121a;
-  --color-surface: #1a1a2e;
-  --color-surface-alt: #16213e;
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-heading: 'Plus Jakarta Sans', var(--font-sans);
 
-  --color-neon-cyan: #00f0ff;
-  --color-neon-magenta: #ff00aa;
-  --color-neon-green: #39ff14;
-  --color-neon-amber: #ffb400;
+  /* Map standard theme variables to our custom css properties for dynamic theming */
+  --color-background: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+  
+  --color-border: var(--border-color);
+  --color-border-hover: var(--border-hover);
 
-  --color-text-primary: #e4e4e7;
-  --color-text-muted: #a1a1aa;
-  --color-text-dim: #71717a;
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-text-dim: var(--text-dim);
 
-  --color-border: #27272a;
-  --color-border-glow: rgba(0, 240, 255, 0.2);
-
-  /* ── Typography ── */
-  --font-heading: "Space Grotesk", system-ui, sans-serif;
-  --font-body: "Inter", system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", "Fira Code", monospace;
-
-  /* ── Custom Animations ── */
-  --animate-glow-pulse: glow-pulse 2s ease-in-out infinite;
-  --animate-scan-line: scan-line 4s linear infinite;
-  --animate-text-shimmer: text-shimmer 3s ease-in-out infinite;
-  --animate-fade-up: fade-up 0.6s ease-out forwards;
-  --animate-float: float 6s ease-in-out infinite;
+  /* Accents */
+  --color-primary: #6366f1; /* Indigo 500 */
+  --color-primary-hover: #818cf8; /* Indigo 400 */
+  --color-accent: #38bdf8; /* Light Blue 400 */
+  
+  /* Utilities */
+  --color-error: #ef4444; /* Red 500 */
+  --color-success: #10b981; /* Emerald 500 */
 }
 
-/* ── Keyframes ── */
-@keyframes glow-pulse {
-  0%, 100% { opacity: 0.6; }
-  50% { opacity: 1; }
+@layer base {
+  :root {
+    /* LIGHT MODE COLORS */
+    --bg: #ffffff;
+    --surface: #f4f4f5; /* Zinc 100 */
+    --surface-hover: #e4e4e7; /* Zinc 200 */
+    
+    --border-color: #e4e4e7; /* Zinc 200 */
+    --border-hover: #d4d4d8; /* Zinc 300 */
+    
+    --text-primary: #09090b; /* Zinc 950 */
+    --text-secondary: #3f3f46; /* Zinc 700 */
+    --text-muted: #52525b; /* Zinc 600 */
+    --text-dim: #71717a; /* Zinc 500 */
+
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(0, 0, 0, 0.08);
+    --glass-hover-bg: rgba(244, 244, 245, 0.7);
+  }
+
+  .dark {
+    /* DARK MODE COLORS */
+    --bg: #09090b; /* Zinc 950 */
+    --surface: #18181b; /* Zinc 900 */
+    --surface-hover: #27272a; /* Zinc 800 */
+    
+    --border-color: #27272a; /* Zinc 800 */
+    --border-hover: #3f3f46; /* Zinc 700 */
+    
+    --text-primary: #f8fafc; /* Slate 50 */
+    --text-secondary: #cbd5e1; /* Slate 300 */
+    --text-muted: #94a3b8; /* Slate 400 */
+    --text-dim: #64748b; /* Slate 500 */
+
+    --glass-bg: rgba(24, 24, 27, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.05);
+    --glass-hover-bg: rgba(39, 39, 42, 0.6);
+  }
 }
 
-@keyframes scan-line {
-  0% { transform: translateY(-100%); }
-  100% { transform: translateY(100vh); }
-}
-
-@keyframes text-shimmer {
-  0% { background-position: -200% center; }
-  100% { background-position: 200% center; }
-}
-
-@keyframes fade-up {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-@keyframes border-glow {
-  0%, 100% { border-color: rgba(0, 240, 255, 0.3); box-shadow: 0 0 10px rgba(0, 240, 255, 0.1); }
-  50% { border-color: rgba(0, 240, 255, 0.6); box-shadow: 0 0 20px rgba(0, 240, 255, 0.2); }
-}
-
-@keyframes gradient-flow {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* ── Base Styles ── */
-*, *::before, *::after {
+/* Base resets & generic styling */
+* {
   box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth;
+  /* Custom scrollbar setup */
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border) var(--color-background);
 }
 
 body {
-  font-family: var(--font-body);
+  margin: 0;
   background-color: var(--color-background);
   color: var(--color-text-primary);
-  line-height: 1.6;
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
-/* ── Typography ── */
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading);
-  font-weight: 700;
-  color: var(--color-text-primary);
-  line-height: 1.2;
-}
-
-a:not(button a):not(.group\/link a) {
-  color: var(--color-neon-cyan);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-a:not(button a):not(.group\/link a):hover {
-  color: var(--color-neon-magenta);
-}
-
-code, pre {
-  font-family: var(--font-mono);
-}
-
-::selection {
-  background: rgba(0, 240, 255, 0.3);
-  color: var(--color-text-primary);
-}
-
-/* ── Scrollbar ── */
+/* Custom Scrollbar for Webkit */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -127,58 +102,79 @@ code, pre {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-surface-alt);
+  background: var(--color-border);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-neon-cyan);
+  background: var(--color-border-hover);
 }
 
-/* ── Utility Classes ── */
-.neon-text {
-  color: var(--color-neon-cyan);
-  text-shadow: 0 0 10px rgba(0, 240, 255, 0.5), 0 0 20px rgba(0, 240, 255, 0.3);
+/* Typography Base */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
 }
 
-.neon-text-magenta {
-  color: var(--color-neon-magenta);
-  text-shadow: 0 0 10px rgba(255, 0, 170, 0.5), 0 0 20px rgba(255, 0, 170, 0.3);
+/* Links */
+a:not(button a):not(.group\/link a) {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-.gradient-text {
-  background: linear-gradient(135deg, var(--color-neon-cyan), var(--color-neon-magenta), var(--color-neon-cyan));
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: text-shimmer 3s ease-in-out infinite;
+a:not(button a):not(.group\/link a):hover {
+  color: var(--color-primary-hover);
 }
 
+/* Focus styles for accessibility */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  animation: gradient 8s linear infinite;
+}
+
+/* 
+  Glassmorphism Utilities 
+  Used carefully to provide depth without overwhelming the design.
+*/
 .glass-panel {
-  background: rgba(26, 26, 46, 0.6);
+  background-color: var(--glass-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--color-border);
-  border-radius: 1rem;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
 }
 
-.neon-border {
-  border: 1px solid rgba(0, 240, 255, 0.3);
-  box-shadow: 0 0 10px rgba(0, 240, 255, 0.1), inset 0 0 10px rgba(0, 240, 255, 0.05);
+.glass-panel-hover:hover {
+  background-color: var(--glass-hover-bg);
 }
 
-.neon-border:hover {
-  border-color: rgba(0, 240, 255, 0.6);
-  box-shadow: 0 0 20px rgba(0, 240, 255, 0.2), inset 0 0 20px rgba(0, 240, 255, 0.1);
-}
-
-/* ── Grid background pattern ── */
-.grid-bg {
-  background-image:
-    linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
-  background-size: 60px 60px;
+/* Subtle background orb for hero sections */
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.15;
+  z-index: 0;
+  pointer-events: none;
 }
 
 /* ── Reduced Motion ── */
