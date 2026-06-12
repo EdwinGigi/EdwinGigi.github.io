@@ -1,0 +1,154 @@
+{
+  "profile": {
+    "about": "I am a dedicated software engineer specializing in full-stack development, with strong expertise in RESTful API design, project management, and software architecture guided by SOLID principles. My career began with a deep curiosity for solving complex problems and has grown into a commitment to building scalable, maintainable, and impactful software solutions.",
+    "roles": [
+      {
+        "title": "Software Engineer",
+        "description": "Specializing in building scalable and efficient software solutions"
+      },
+      {
+        "title": "Full Stack Developer",
+        "description": "Expertise in both frontend and backend development"
+      }
+    ],
+    "experience": [
+      {
+        "company": "Darktrace",
+        "role": "Software Engineer",
+        "date": "2022 – Present",
+        "points": [
+          "Leading development of scalable web applications using modern tech stack",
+          "Implementing microservices architecture and CI/CD pipelines",
+          "Collaborating with cross-functional teams to deliver high-quality software",
+          "Mentoring junior developers and conducting code reviews"
+        ]
+      },
+      {
+        "company": "Warehouse Control Solutions",
+        "role": "Software Support Engineer",
+        "date": "09/2020 – 09/2021",
+        "points": [
+          "Maintained international client systems across multiple sites via remote access",
+          "Oversaw hardware and shipping processes of our systems for clients",
+          "In house repairs and upgrades of our clients systems and company systems",
+          "Scheduled system upgrades and updates for our clients"
+        ]
+      }
+    ],
+    "education": [
+      {
+        "institution": "De Montfort University",
+        "degree": "BSc (Hons) Computer Science with Placement Year",
+        "date": "2018-2022",
+        "achievement": "First Class Honours",
+        "image": "/assets/images/De-Montfort-Uni.png",
+        "modules": [
+          "Object Oriented Programming",
+          "Software Engineering and Project Management",
+          "Operating Systems and Computer Networks",
+          "Database Systems and Data Structures"
+        ]
+      }
+    ],
+    "skills": [
+      {
+        "category": "Languages",
+        "items": ["PHP", "Python", "JavaScript", "TypeScript", "SQL", "HTML/CSS"]
+      },
+      {
+        "category": "Frameworks & Libraries",
+        "items": ["Laravel", "Vue.js", "React", "Flask", "Tailwind CSS", "Bootstrap"]
+      },
+      {
+        "category": "Tools & Technologies",
+        "items": ["Git", "Docker", "RESTful APIs", "CI/CD", "Postman", "Linux", "MySQL", "PostgreSQL"]
+      },
+      {
+        "category": "Practices",
+        "items": ["Agile/Scrum", "SOLID Principles", "Microservices", "TDD", "Code Review", "Database Design"]
+      }
+    ],
+    "contact": {
+      "linkedin": "https://linkedin.com/in/edwin-gigi",
+      "github": "https://github.com/edwingigi",
+      "email": "edwingigi2012@gmail.com"
+    }
+  },
+  "projects": [
+    {
+      "id": "text-summarizer",
+      "slug": "text-summarizer",
+      "title": "Text Summarizer",
+      "description": "A sophisticated text summarization tool powered by AI that condenses lengthy articles and documents into concise summaries while maintaining key information and context.",
+      "longDescription": "This project utilizes advanced NLP techniques and machine learning algorithms to generate accurate and coherent summaries. Built with Python and Flask, it provides a web interface where users can paste text and receive instant summaries at various compression levels.",
+      "image": "/assets/images/text-summarizer.png",
+      "stack": ["Python", "Flask", "NLP", "Machine Learning", "NLTK"],
+      "features": [
+        "AI-powered text summarization with adjustable compression",
+        "Support for multiple text formats and lengths",
+        "Real-time processing with instant results",
+        "User-friendly web interface"
+      ],
+      "githubUrl": "https://github.com/EdwinGigi/TextSummariser"
+    },
+    {
+      "id": "job-application-tracker",
+      "slug": "job-application-tracker",
+      "title": "Job Application Tracker",
+      "description": "A Python terminal program with a user-friendly interface to help users keep track of their job applications with full CRUD operations.",
+      "longDescription": "Built with Python's inquirer package, this tool creates an interactive terminal interface for managing job applications. Users can add, view, update, and delete applications while storing details such as company name, position, application date, status, and notes. Data is persisted in a SQLite database for easy retrieval.",
+      "image": "/assets/images/job_search_helper.png",
+      "stack": ["Python", "SQLite", "CLI"],
+      "features": [
+        "Interactive terminal UI with inquirer",
+        "Full CRUD operations for job applications",
+        "SQLite database for persistent storage",
+        "Track status, notes, and application dates"
+      ],
+      "githubUrl": "https://github.com/EdwinGigi/JobApplicationTracker"
+    },
+    {
+      "id": "school-website",
+      "slug": "school-website",
+      "title": "School History Website",
+      "description": "A minimalistic website documenting school history, built as part of an Extended Project Qualification (EPQ) achieving an A* grade.",
+      "longDescription": "This website was created using HTML, CSS, and JavaScript as part of my Extended Project Qualification in Year 12. It documents the history of my school through research and development, resulting in a clean, informative web experience hosted on GitHub Pages.",
+      "image": "/assets/images/school-website.png",
+      "stack": ["HTML", "CSS", "JavaScript", "GitHub Pages"],
+      "features": [
+        "Responsive design for all devices",
+        "Historical research presented in an engaging format",
+        "Clean, minimalistic UI design",
+        "Hosted on GitHub Pages"
+      ],
+      "liveUrl": "https://historyofbgn.github.io/"
+    },
+    {
+      "id": "portfolio-website",
+      "slug": "portfolio-website",
+      "title": "Portfolio Website",
+      "description": "A modern, responsive portfolio website built with React and Tailwind CSS, featuring a cyberpunk design theme with smooth animations.",
+      "longDescription": "This very website! A complete rebuild from a Jekyll-based portfolio to a modern React + Vite application with Tailwind CSS, shadcn/ui components, and Framer Motion animations. Features a cyberpunk-inspired design with neon accents, glassmorphism effects, and a fully static architecture deployed to GitHub Pages.",
+      "image": "/assets/images/edwin-gigi-portfolio.png",
+      "stack": ["React", "Tailwind CSS", "Vite", "Framer Motion", "GitHub Pages"],
+      "features": [
+        "Cyberpunk-themed design with neon accents",
+        "Smooth page transitions and scroll animations",
+        "MDX-powered blog system",
+        "Fully static, deployed to GitHub Pages"
+      ],
+      "githubUrl": "https://github.com/EdwinGigi/EdwinGigi.github.io"
+    }
+  ],
+  "games": [
+    "Red Dead Redemption 2",
+    "God of War (2018)",
+    "Baldurs Gate 3",
+    "Marvel's Spider Man",
+    "GTA 5",
+    "Skyrim",
+    "Minecraft",
+    "Cyberpunk 2077",
+    "The Witcher 3: Wild Hunt"
+  ]
+}
