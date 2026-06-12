@@ -11,8 +11,8 @@ export default function CustomCursor() {
   const mouseX = useMotionValue(0)
   const mouseY = useMotionValue(0)
 
-  // Smooth springs for trailing effect
-  const springConfig = { damping: 20, stiffness: 300, mass: 0.5 }
+  // Snappier springs for a smoother, higher-framerate feel
+  const springConfig = { damping: 25, stiffness: 400, mass: 0.1 }
   const cursorX = useSpring(mouseX, springConfig)
   const cursorY = useSpring(mouseY, springConfig)
 

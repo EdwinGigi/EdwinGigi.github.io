@@ -7,9 +7,10 @@ export default function InteractiveBackground() {
   const mouseX = useMotionValue(typeof window !== 'undefined' ? window.innerWidth / 2 : 0)
   const mouseY = useMotionValue(typeof window !== 'undefined' ? window.innerHeight / 2 : 0)
 
-  // Use a very smooth spring for the glowing orb to lazily follow the mouse
-  const springX = useSpring(mouseX, { damping: 50, stiffness: 100, mass: 2 })
-  const springY = useSpring(mouseY, { damping: 50, stiffness: 100, mass: 2 })
+  // Use a smoother, lighter spring for a high-framerate feel
+  const springConfig = { damping: 40, stiffness: 150, mass: 0.5 }
+  const springX = useSpring(mouseX, springConfig)
+  const springY = useSpring(mouseY, springConfig)
 
   useEffect(() => {
     // Center it initially
