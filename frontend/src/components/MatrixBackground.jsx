@@ -53,9 +53,11 @@ export default function MatrixBackground() {
     document.addEventListener('mouseleave', handleMouseLeave)
 
     const draw = () => {
-      // Semi-transparent background to create trail effect
-      ctx.fillStyle = theme === 'dark' ? 'rgba(9, 9, 11, 0.1)' : 'rgba(255, 255, 255, 0.1)'
+      // Fade out existing drawings to create trail effect without using mix-blend-mode
+      ctx.globalCompositeOperation = 'destination-out'
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.15)'
       ctx.fillRect(0, 0, canvas.width, canvas.height)
+      ctx.globalCompositeOperation = 'source-over'
       
       ctx.font = `${fontSize}px monospace`
       
@@ -117,7 +119,7 @@ export default function MatrixBackground() {
   return (
     <canvas
       ref={canvasRef}
-      className={`fixed inset-0 z-0 h-full w-full opacity-60 ${theme === 'dark' ? 'mix-blend-screen' : 'mix-blend-multiply'}`}
+      className="fixed inset-0 z-0 h-full w-full opacity-70"
       style={{ pointerEvents: 'none' }}
     />
   )

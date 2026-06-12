@@ -27,10 +27,18 @@ export default function InteractiveBackground() {
 
   const isDark = theme === 'dark'
   
-  // Create a stunning multi-color gradient
+  // Create a stunning multi-color gradient WITHOUT using expensive CSS blur filters
   const glowColor = isDark 
-    ? 'radial-gradient(circle at center, rgba(0,240,255,0.15) 0%, rgba(255,0,170,0.1) 40%, transparent 70%)'
-    : 'radial-gradient(circle at center, rgba(99,102,241,0.25) 0%, rgba(236,72,153,0.2) 40%, transparent 70%)'
+    ? 'radial-gradient(circle at center, rgba(0,240,255,0.12) 0%, rgba(255,0,170,0.08) 30%, transparent 60%)'
+    : 'radial-gradient(circle at center, rgba(99,102,241,0.15) 0%, rgba(236,72,153,0.1) 30%, transparent 60%)'
+
+  const primaryGlow = isDark 
+    ? 'radial-gradient(circle, rgba(0,240,255,0.08) 0%, transparent 60%)' 
+    : 'radial-gradient(circle, rgba(99,102,241,0.1) 0%, transparent 60%)'
+    
+  const accentGlow = isDark 
+    ? 'radial-gradient(circle, rgba(255,0,170,0.08) 0%, transparent 60%)' 
+    : 'radial-gradient(circle, rgba(236,72,153,0.1) 0%, transparent 60%)'
 
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none transition-colors duration-500">
@@ -47,11 +55,11 @@ export default function InteractiveBackground() {
         }}
       />
 
-      {/* Static ambient corner glows */}
-      <div className="absolute -top-[20%] -left-[10%] w-[70%] h-[70%] rounded-full blur-[120px] bg-primary/20 dark:bg-primary/10 animate-pulse" style={{ animationDuration: '10s' }} />
-      <div className="absolute -bottom-[20%] -right-[10%] w-[60%] h-[60%] rounded-full blur-[120px] bg-accent/20 dark:bg-accent/10 animate-pulse" style={{ animationDuration: '12s' }} />
+      {/* Static ambient corner glows (Optimized: No blur filter) */}
+      <div className="absolute -top-[20%] -left-[10%] w-[70%] h-[70%] animate-pulse" style={{ animationDuration: '10s', background: primaryGlow }} />
+      <div className="absolute -bottom-[20%] -right-[10%] w-[60%] h-[60%] animate-pulse" style={{ animationDuration: '12s', background: accentGlow }} />
 
-      {/* Mouse tracking orb */}
+      {/* Mouse tracking orb (Optimized: No blur filter) */}
       <motion.div
         className="absolute rounded-full"
         style={{
@@ -62,7 +70,6 @@ export default function InteractiveBackground() {
           x: springX,
           y: springY,
           background: glowColor,
-          filter: 'blur(40px)',
           willChange: 'transform',
         }}
       />

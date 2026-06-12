@@ -156,15 +156,26 @@ a:not(button a):not(.group\/link a):hover {
   Used carefully to provide depth without overwhelming the design.
 */
 .glass-panel {
-  background-color: var(--glass-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  /* Solid fallback for mobile to prevent GPU memory crashes */
+  background-color: var(--surface);
   border: 1px solid var(--glass-border);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
 }
 
 .glass-panel-hover:hover {
-  background-color: var(--glass-hover-bg);
+  background-color: var(--surface-hover);
+}
+
+@media (min-width: 768px) {
+  .glass-panel {
+    background-color: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  
+  .glass-panel-hover:hover {
+    background-color: var(--glass-hover-bg);
+  }
 }
 
 /* Subtle background orb for hero sections */
