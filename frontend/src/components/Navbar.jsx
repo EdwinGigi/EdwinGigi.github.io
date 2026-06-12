@@ -62,7 +62,7 @@ export default function Navbar() {
         scrolled ? 'bg-surface/95' : 'bg-surface/60'
       )}
     >
-      <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
+      <nav className="relative z-50 mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
         {/* ── Brand ── */}
         <Link
           to="/"
@@ -127,7 +127,7 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => setMobileOpen((prev) => !prev)}
-            className="relative z-50 rounded-lg border border-neon-cyan/50 bg-neon-cyan/10 p-2 text-neon-cyan backdrop-blur-md transition-colors hover:bg-neon-cyan/20 md:hidden"
+            className="rounded-lg border border-neon-cyan/50 bg-neon-cyan/10 p-2 text-neon-cyan backdrop-blur-md transition-colors hover:bg-neon-cyan/20 md:hidden"
             aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={mobileOpen}
           >
@@ -162,7 +162,8 @@ export default function Navbar() {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            className="fixed inset-0 z-40 flex flex-col items-center justify-start bg-[#0a0a0f]/95 pt-32 backdrop-blur-xl md:hidden"
+            className="fixed inset-0 z-40 flex flex-col items-center justify-start pt-32 md:hidden"
+            style={{ backgroundColor: '#0a0a0f' }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
