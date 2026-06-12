@@ -140,27 +140,25 @@ export default function Projects() {
                       )}
                     </div>
 
-                    <div className="flex flex-wrap items-center gap-4 mt-auto pt-4 border-t border-border">
-                      <Button asChild variant="default" size="sm" className="flex-1">
+                    <div className="flex flex-wrap items-center justify-center gap-3 mt-auto pt-6 border-t border-border">
+                      <Button asChild variant="default" className="rounded-full shadow-md shadow-primary/10 !text-white">
                         <Link to={`/projects/${project.slug}`}>
                           Details
                         </Link>
                       </Button>
                       
-                      {project.githubUrl && (
-                        <Button asChild variant="outline" size="icon" className="shrink-0" title="Source Code">
-                          <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                            <Github className="h-4 w-4" />
-                            <span className="sr-only">GitHub</span>
+                      {project.liveUrl && (
+                        <Button asChild variant="outline" className="rounded-full" title="Live Demo">
+                          <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                            <ExternalLink className="mr-2 h-4 w-4" /> Live Demo
                           </a>
                         </Button>
                       )}
                       
-                      {project.liveUrl && (
-                        <Button asChild variant="outline" size="icon" className="shrink-0" title="Live Demo">
-                          <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                            <ExternalLink className="h-4 w-4" />
-                            <span className="sr-only">Live Demo</span>
+                      {project.githubUrl && (
+                        <Button asChild variant="outline" className="rounded-full" title="Source Code">
+                          <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                            <Github className="mr-2 h-4 w-4" /> Source Code
                           </a>
                         </Button>
                       )}

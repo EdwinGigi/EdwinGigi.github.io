@@ -8,7 +8,7 @@ import {
   animate,
 } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { Mail, ChevronDown, ArrowRight, Terminal } from 'lucide-react'
+import { Mail, ChevronDown, ArrowRight, Terminal, ExternalLink } from 'lucide-react'
 import { Github, Linkedin } from '@/components/ui/icons'
 import { Button } from '@/components/ui/button'
 import { SectionHeading } from '@/components/ui/section-heading'
@@ -153,13 +153,28 @@ function FeaturedProjectCard({ project, index, reversed }) {
             ))}
           </div>
 
-          <div className="mt-8">
-            <Button variant="link" asChild className="group/link p-0 text-primary">
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3 border-t border-border pt-6">
+            <Button asChild variant="default" className="rounded-full shadow-md shadow-primary/10 !text-white">
               <Link to={`/projects/${project.slug}`}>
-                View Details
-                <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover/link:translate-x-1" />
+                Details
               </Link>
             </Button>
+            
+            {project.liveUrl && (
+              <Button asChild variant="outline" className="rounded-full" title="Live Demo">
+                <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                  <ExternalLink className="mr-2 h-4 w-4" /> Live Demo
+                </a>
+              </Button>
+            )}
+            
+            {project.githubUrl && (
+              <Button asChild variant="outline" className="rounded-full" title="Source Code">
+                <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                  <Github className="mr-2 h-4 w-4" /> Source Code
+                </a>
+              </Button>
+            )}
           </div>
         </div>
       </motion.div>

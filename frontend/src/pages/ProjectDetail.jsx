@@ -70,19 +70,19 @@ export default function ProjectDetail() {
       {/* ── Content ── */}
       <div className="mx-auto max-w-4xl px-6 pt-16">
         
-        {/* Links row (Mobile: Top, Desktop: Top-right float equivalent handled via flex) */}
-        <div className="mb-12 flex flex-wrap gap-4">
+        {/* Links row */}
+        <div className="mb-16 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
           {project.liveUrl && (
-            <Button asChild size="lg" className="flex-1 md:flex-none rounded-full shadow-md shadow-primary/10">
+            <Button asChild size="lg" className="w-full sm:w-auto rounded-full shadow-lg shadow-primary/20 px-8 py-6 text-lg !text-white">
               <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                <ExternalLink className="mr-2 h-5 w-5" /> Live Demo
+                <ExternalLink className="mr-3 h-6 w-6" /> Live Demo
               </a>
             </Button>
           )}
           {project.githubUrl && (
-            <Button asChild variant="outline" size="lg" className="flex-1 md:flex-none rounded-full">
+            <Button asChild variant="outline" size="lg" className="w-full sm:w-auto rounded-full px-8 py-6 text-lg border-2 hover:bg-surface-hover">
               <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                <Github className="mr-2 h-5 w-5" /> Source Code
+                <Github className="mr-3 h-6 w-6" /> Source Code
               </a>
             </Button>
           )}
