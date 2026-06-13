@@ -106,6 +106,30 @@
   },
   "projects": [
     {
+      "id": "chiron-ai",
+      "slug": "chiron-ai",
+      "title": "Chiron Autonomous Agent",
+      "description": "An autonomous CI/CD AI agent built with Google Gemini 2.5 that actively reviews pull requests, diagnoses failed GitHub Actions, and pushes code fixes autonomously.",
+      "longDescription": "Chiron is an advanced GitHub App webhook receiver built using FastAPI and Google's Gemini 2.5 Pro. Unlike standard 'AI Code Reviewers' that only leave comments, Chiron acts as a fully autonomous team member. It listens for pull request events to provide intelligent code review, and hooks into CI/CD pipeline failures. Upon a pipeline failure, it downloads the zip logs, extracts the traceback, prompts Gemini for a fix, validates the patch using Tree-sitter, and pushes a brand new Pull Request containing the autonomous fix back to the repository.",
+      "image": "/assets/images/chiron-cover.png",
+      "videoUrl": "/assets/videos/chiron-demo.mp4",
+      "stack": [
+        "Python",
+        "FastAPI",
+        "Google Gemini API",
+        "GitHub Apps",
+        "Docker"
+      ],
+      "features": [
+        "Fully autonomous code remediation loop",
+        "Intelligent CI/CD log parsing and diagnosis",
+        "Webhook receiver handling massive scale events",
+        "Fallback assistant mode for ambiguous failures"
+      ],
+      "githubUrl": "https://github.com/EdwinGigi/chiron",
+      "liveUrl": "https://github.com/EdwinGigi/chiron-sandbox/pulls"
+    },
+    {
       "id": "text-summarizer",
       "slug": "text-summarizer",
       "title": "Text Summarizer",

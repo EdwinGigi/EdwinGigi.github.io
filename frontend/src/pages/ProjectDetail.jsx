@@ -89,6 +89,30 @@ export default function ProjectDetail() {
         </div>
 
         <div className="space-y-16">
+          {/* Video Demonstration */}
+          {project.videoUrl && (
+            <motion.section 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <SectionHeading title="Live Demonstration" />
+              <div className="mt-6 overflow-hidden rounded-2xl border border-border shadow-2xl shadow-primary/10">
+                <video 
+                  src={project.videoUrl} 
+                  controls 
+                  autoPlay 
+                  muted 
+                  loop 
+                  playsInline
+                  className="w-full h-auto aspect-video object-cover bg-surface-hover"
+                >
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </motion.section>
+          )}
+
           {/* Overview */}
           <motion.section 
             initial={{ opacity: 0, y: 20 }}
