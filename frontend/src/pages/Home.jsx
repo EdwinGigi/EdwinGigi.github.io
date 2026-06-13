@@ -160,11 +160,17 @@ function FeaturedProjectCard({ project, index, reversed }) {
               </Link>
             </Button>
             
-            {project.liveUrl && (
+            {(project.videoUrl || project.liveUrl) && (
               <Button asChild variant="outline" className="rounded-full" title="Live Demo">
-                <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                  <ExternalLink className="mr-2 h-4 w-4" /> Live Demo
-                </a>
+                {project.videoUrl ? (
+                  <Link to={`/projects/${project.slug}#demo`}>
+                    <ExternalLink className="mr-2 h-4 w-4" /> Live Demo
+                  </Link>
+                ) : (
+                  <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                    <ExternalLink className="mr-2 h-4 w-4" /> Live Demo
+                  </a>
+                )}
               </Button>
             )}
             

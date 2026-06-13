@@ -72,11 +72,17 @@ export default function ProjectDetail() {
         
         {/* Links row */}
         <div className="mb-16 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
-          {project.liveUrl && (
+          {(project.videoUrl || project.liveUrl) && (
             <Button asChild size="lg" className="w-full sm:w-auto rounded-full shadow-lg shadow-primary/20 px-8 py-6 text-lg !text-white">
-              <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                <ExternalLink className="mr-3 h-6 w-6" /> Live Demo
-              </a>
+              {project.videoUrl ? (
+                <a href="#demo">
+                  <ExternalLink className="mr-3 h-6 w-6" /> Watch Demo
+                </a>
+              ) : (
+                <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                  <ExternalLink className="mr-3 h-6 w-6" /> Live Demo
+                </a>
+              )}
             </Button>
           )}
           {project.githubUrl && (
@@ -97,7 +103,7 @@ export default function ProjectDetail() {
               viewport={{ once: true }}
             >
               <SectionHeading title="Live Demonstration" />
-              <div className="mt-6 overflow-hidden rounded-2xl border border-border shadow-2xl shadow-primary/10">
+              <div id="demo" className="mt-6 overflow-hidden rounded-2xl border border-border shadow-2xl shadow-primary/10">
                 <video 
                   src={project.videoUrl} 
                   controls 
